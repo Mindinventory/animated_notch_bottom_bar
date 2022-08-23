@@ -49,7 +49,7 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
   @override
   Widget build(BuildContext context) {
     if (widget.items!.length > 5) {
-      throw Exception(' Bottom bar length shouldn\'t be more then 5');
+      throw Exception(' Bottom bar item length shouldn\'t be more then 5');
     }
     final size = MediaQuery.of(context).size;
     final width = size.width;

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'constants/constants.dart';
 
-/// Class to generate the moving ball
 class BottomBarPainter extends CustomPainter {
   BottomBarPainter({@required this.position, this.color})
       : _paint = Paint()
