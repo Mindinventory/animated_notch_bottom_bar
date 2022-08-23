@@ -6,13 +6,13 @@ import 'constants/constants.dart';
 
 /// Class to generate the moving ball
 class BottomBarPainter extends CustomPainter {
-  BottomBarPainter({@required this.x, this.color})
+  BottomBarPainter({@required this.position, this.color})
       : _paint = Paint()
           ..color = color ?? Colors.white
           ..isAntiAlias = true;
 
-  /// Double value to indicate the position to move the ball
-  final double? x;
+  /// position
+  final double? position;
 
   /// Color for the toolbar
   final Color? color;
@@ -28,7 +28,7 @@ class BottomBarPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(BottomBarPainter oldDelegate) {
-    return x != oldDelegate.x || color != oldDelegate.color;
+    return position != oldDelegate.position || color != oldDelegate.color;
   }
 
   void _drawBar(Canvas canvas, Size size) {
@@ -39,7 +39,7 @@ class BottomBarPainter extends CustomPainter {
 
     final path = Path()
       ..moveTo(left + kTopRadius, top)
-      ..lineTo(x! - kTopRadius, top)
+      ..lineTo(position! - kTopRadius, top)
       ..relativeArcToPoint(
         const Offset(kTopRadius, kTopRadius),
         radius: const Radius.circular(kTopRadius),
@@ -83,7 +83,7 @@ class BottomBarPainter extends CustomPainter {
       ..addArc(
         Rect.fromCircle(
           center: Offset(
-            x! + kCircleMargin + kCircleRadius,
+            position! + kCircleMargin + kCircleRadius,
             kMargin + kCircleMargin,
           ),
           radius: kCircleRadius,

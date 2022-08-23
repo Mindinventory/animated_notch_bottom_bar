@@ -12,7 +12,7 @@ class NotchBottomBar extends StatefulWidget {
   final PageController? controller;
 
   /// List of items of bottom bar
-  final List<SvgBottomBarItem>? items;
+  final List<BottomBarItemModel>? items;
 
   /// Function called when an item was tapped
   final ValueChanged<int>? onTap;
@@ -73,7 +73,7 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
                   CustomPaint(
                     size: Size(width, height),
                     painter: BottomBarPainter(
-                      x: _itemXByScrollPosition(scrollPosition),
+                      position: _itemPosByScrollPosition(scrollPosition),
                       color: widget.color,
                     ),
                   ),
@@ -83,7 +83,7 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
                         top: kTopMargin,
                         left: kCircleRadius -
                             kCircleMargin / 2 +
-                            _itemXByScrollPosition(scrollPosition),
+                            _itemPosByScrollPosition(scrollPosition),
                         child: BottomBarActiveItem(
                           i,
                           iconData: widget.items![i].activeWidget,
@@ -94,12 +94,12 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
                     if (i != currentIndex)
                       Positioned(
                         top: kMargin + (kHeight - kCircleRadius * 2) / 2,
-                        left: kCircleMargin + _itemXByIndex(i),
+                        left: kCircleMargin + _itemPosByIndex(i),
                         child: BottomBarUnActiveItem(
                           i,
                           iconData: widget.items![i].inActiveWidget!,
                           label: widget.items![i].label,
-                          lableColor: widget.labelColor,
+                          labelColor: widget.labelColor,
                           onTap: widget.onTap,
                         ),
                       ),
@@ -110,25 +110,26 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
           );
   }
 
-  double _firstItemX() {
+  double _firstItemPosition() {
     return (_screenWidth! - kMargin * 2) * 0.1;
   }
 
-  double _lastItemX() {
+  double _lastItemPosition() {
     return _screenWidth! -
         (_screenWidth! - kMargin * 2) * 0.1 -
         (kCircleRadius + kCircleMargin) * 2;
   }
 
   double _itemDistance() {
-    return (_lastItemX() - _firstItemX()) / (widget.items!.length - 1);
+    return (_lastItemPosition() - _firstItemPosition()) /
+        (widget.items!.length - 1);
   }
 
-  double _itemXByScrollPosition(double scrollPosition) {
-    return _firstItemX() + _itemDistance() * scrollPosition;
+  double _itemPosByScrollPosition(double scrollPosition) {
+    return _firstItemPosition() + _itemDistance() * scrollPosition;
   }
 
-  double _itemXByIndex(int index) {
-    return _firstItemX() + _itemDistance() * index;
+  double _itemPosByIndex(int index) {
+    return _firstItemPosition() + _itemDistance() * index;
   }
 }

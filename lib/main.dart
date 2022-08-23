@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ? NotchBottomBar(
               controller: _controller,
               items: [
-                SvgBottomBarItem(
+                BottomBarItemModel(
                   inActiveWidget: SvgPicture.asset(
                     'assets/search_icon.svg',
                     height: 20,
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   label: 'Page 1',
                 ),
-                const SvgBottomBarItem(
+                const BottomBarItemModel(
                   inActiveWidget: Icon(
                     Icons.star,
                   ),
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   label: 'Page 2',
                 ),
-                SvgBottomBarItem(
+                BottomBarItemModel(
                   inActiveWidget: SvgPicture.asset(
                     'assets/search_icon.svg',
                     height: 20,
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   label: 'Page 3',
                 ),
-                SvgBottomBarItem(
+                BottomBarItemModel(
                   inActiveWidget: Image.asset(
                     'assets/account_grey_unselected_button2.png',
                     height: 20,
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   label: 'Page 3',
                 ),
-                SvgBottomBarItem(
+                BottomBarItemModel(
                   inActiveWidget: SvgPicture.asset(
                     'assets/ic_verify_sign.svg',
                     height: 20,

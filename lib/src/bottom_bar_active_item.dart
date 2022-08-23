@@ -10,10 +10,8 @@ class BottomBarActiveItem extends StatelessWidget {
     this.onTap,
   });
 
-  /// Int value to indicate the index on app bar
   final int index;
 
-  /// Value necessary to render the icon
   final Widget? iconData;
 
   /// Double value to indicate the item position

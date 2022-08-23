@@ -7,19 +7,17 @@ import 'constants/constants.dart';
 /// Class to generate the inactive icon on bottom bar
 class BottomBarUnActiveItem extends StatelessWidget {
   const BottomBarUnActiveItem(this.index,
-      {this.iconData, this.label, this.lableColor, this.onTap});
+      {this.iconData, this.label, this.labelColor, this.onTap});
 
-  /// Int value to indicate the index on app bar
   final int index;
 
-  /// Value necessary to render the icon
   final Widget? iconData;
 
   /// String to indicate the label item
   final String? label;
 
   /// Value to indicate the icon color
-  final Color? lableColor;
+  final Color? labelColor;
 
   /// Function called when an item was tapped
   final ValueChanged<int>? onTap;
@@ -38,7 +36,7 @@ class BottomBarUnActiveItem extends StatelessWidget {
               Text(
                 label!,
                 style: TextStyle(
-                  color: lableColor ?? Colors.grey[700],
+                  color: labelColor ?? Colors.grey[700],
                   fontSize: 12.0,
                 ),
               ),
