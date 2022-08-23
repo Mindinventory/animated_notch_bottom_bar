@@ -1,10 +1,13 @@
-# svg_bottombar_flutter
+# Animated Notch Bottom Bar
 
-A new Flutter project.
+Flutter package for displaying and animating the selected items of bottomNavigationBar inspired by [react-native-tabbar-interaction](https://github.com/Mindinventory/react-native-tabbar-interaction) plugin.
+This package accepts any kind of widget as a bottom bar icon.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started, place `NotchBottomBar` in the bottomNavigationBar parameter of a `Scaffold` widget.
+
+For example:
 
 A few resources to get you started if this is your first Flutter project:
 

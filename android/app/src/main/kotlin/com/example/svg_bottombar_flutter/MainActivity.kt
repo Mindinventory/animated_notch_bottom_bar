@@ -1,4 +1,4 @@
-package com.example.svg_bottombar_flutter
+package com.mindinventory.animated_notch_bottom_bar
 
 import io.flutter.embedding.android.FlutterActivity
 
