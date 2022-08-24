@@ -157,44 +157,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(shrinkWrap: true, children: [
-      Container(
-        color: Colors.red,
-        child: Text('Page 2'),
-        height: 200,
-        width: 200,
-      ),
-      Container(
-        color: Colors.red,
-        child: Text('Page 2'),
-        height: 200,
-        width: 200,
-      ),
-      Container(
-        color: Colors.red,
-        child: Text('Page 2'),
-        height: 200,
-        width: 200,
-      ),
-      Container(
-        color: Colors.red,
-        child: Text('Page 2'),
-        height: 200,
-        width: 200,
-      ),
-      Container(
-        color: Colors.red,
-        child: Text('Page 2'),
-        height: 200,
-        width: 200,
-      ),
-      Container(
-        color: Colors.red,
-        child: Text('Page 2'),
-        height: 200,
-        width: 200,
-      ),
-    ]);
+    return const Center(child: Text('Page 2'));
   }
 }
 
