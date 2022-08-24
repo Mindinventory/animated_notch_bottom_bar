@@ -28,19 +28,80 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _controller = PageController();
+  /// Controller to handle PageView
+  final _pageController = PageController();
+
   int maxCount = 5;
-  List<Widget> tabBarPages = [
+
+  /// widget list
+  final List<Widget> bottomBarPages = [
     const Page1(),
     const Page2(),
     const Page3(),
     const Page4(),
     const Page5(),
   ];
+  final List<BottomBarItems> _bottomBarItemsList = [
+    const BottomBarItems(
+      inActiveItem: Icon(
+        Icons.home_filled,
+        color: Colors.blueGrey,
+      ),
+      activeItem: Icon(
+        Icons.home_filled,
+        color: Colors.blueAccent,
+      ),
+      itemLabel: 'Page 1',
+    ),
+    const BottomBarItems(
+      inActiveItem: Icon(
+        Icons.star,
+      ),
+      activeItem: Icon(
+        Icons.star,
+        color: Colors.blueAccent,
+      ),
+      itemLabel: 'Page 2',
+    ),
+    BottomBarItems(
+      inActiveItem: SvgPicture.asset(
+        'assets/search_icon.svg',
+        height: 20,
+        width: 20,
+      ),
+      activeItem: SvgPicture.asset(
+        'assets/search_icon.svg',
+        height: 20,
+        width: 20,
+      ),
+      itemLabel: 'Page 3',
+    ),
+    const BottomBarItems(
+      inActiveItem: Icon(
+        Icons.settings,
+        color: Colors.grey,
+      ),
+      activeItem: Icon(
+        Icons.settings,
+        color: Colors.pink,
+      ),
+      itemLabel: 'Page 4',
+    ),
+    const BottomBarItems(
+      inActiveItem: Icon(
+        Icons.person,
+      ),
+      activeItem: Icon(
+        Icons.person,
+        color: Colors.yellowAccent,
+      ),
+      itemLabel: 'Page 5',
+    ),
+  ];
 
   @override
   void dispose() {
-    _controller.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -57,73 +118,20 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Animated Notch Bottom Bar'),
       ),
       body: PageView(
-        controller: _controller,
+        controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(maxCount, (index) => tabBarPages[index]),
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
-      bottomNavigationBar: (tabBarPages.length <= maxCount)
+      bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? NotchBottomBar(
-              controller: _controller,
-              items: [
-                const BottomBarItemModel(
-                  inActiveWidget: Icon(
-                    Icons.home_filled,
-                    color: Colors.blueGrey,
-                  ),
-                  activeWidget: Icon(
-                    Icons.home_filled,
-                    color: Colors.blueAccent,
-                  ),
-                  label: 'Page 1',
-                ),
-                const BottomBarItemModel(
-                  inActiveWidget: Icon(
-                    Icons.star,
-                  ),
-                  activeWidget: Icon(
-                    Icons.star,
-                    color: Colors.blueAccent,
-                  ),
-                  label: 'Page 2',
-                ),
-                BottomBarItemModel(
-                  inActiveWidget: SvgPicture.asset(
-                    'assets/search_icon.svg',
-                    height: 20,
-                    width: 20,
-                  ),
-                  activeWidget: SvgPicture.asset(
-                    'assets/search_icon.svg',
-                    height: 20,
-                    width: 20,
-                  ),
-                  label: 'Page 1',
-                ),
-                const BottomBarItemModel(
-                  inActiveWidget: Icon(
-                    Icons.settings,
-                    color: Colors.grey,
-                  ),
-                  activeWidget: Icon(
-                    Icons.settings,
-                    color: Colors.pink,
-                  ),
-                  label: 'Page 4',
-                ),
-                const BottomBarItemModel(
-                  inActiveWidget: Icon(
-                    Icons.person,
-                  ),
-                  activeWidget: Icon(
-                    Icons.person,
-                    color: Colors.yellowAccent,
-                  ),
-                  label: 'Page 5',
-                ),
-              ],
+              pageController: _pageController,
+              showLabel: false,
+              bottomBarItems: List.generate(
+                  bottomBarPages.length, (index) => _bottomBarItemsList[index]),
               onTap: (index) {
-                _controller.animateToPage(
+                _pageController.animateToPage(
                   index,
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeIn,
@@ -149,7 +157,44 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Page 2'));
+    return ListView(shrinkWrap: true, children: [
+      Container(
+        color: Colors.red,
+        child: Text('Page 2'),
+        height: 200,
+        width: 200,
+      ),
+      Container(
+        color: Colors.red,
+        child: Text('Page 2'),
+        height: 200,
+        width: 200,
+      ),
+      Container(
+        color: Colors.red,
+        child: Text('Page 2'),
+        height: 200,
+        width: 200,
+      ),
+      Container(
+        color: Colors.red,
+        child: Text('Page 2'),
+        height: 200,
+        width: 200,
+      ),
+      Container(
+        color: Colors.red,
+        child: Text('Page 2'),
+        height: 200,
+        width: 200,
+      ),
+      Container(
+        color: Colors.red,
+        child: Text('Page 2'),
+        height: 200,
+        width: 200,
+      ),
+    ]);
   }
 }
 

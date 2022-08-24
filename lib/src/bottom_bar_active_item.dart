@@ -5,14 +5,16 @@ import 'constants/constants.dart';
 class BottomBarActiveItem extends StatelessWidget {
   const BottomBarActiveItem(
     this.index, {
-    this.iconData,
+    this.itemWidget,
     this.scrollPosition,
     this.onTap,
   });
 
+  /// item index
   final int index;
 
-  final Widget? iconData;
+  /// item
+  final Widget? itemWidget;
 
   /// Double value to indicate the item position
   final double? scrollPosition;
@@ -22,7 +24,7 @@ class BottomBarActiveItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final icon = iconData!;
+    final icon = itemWidget!;
     return InkWell(
       child: SizedBox.fromSize(
         size: const Size(kIconSize, kIconSize),

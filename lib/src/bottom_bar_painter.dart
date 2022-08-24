@@ -37,6 +37,7 @@ class BottomBarPainter extends CustomPainter {
     return position != oldDelegate.position || color != oldDelegate.color;
   }
 
+  /// draw bottom bar
   void _drawBar(Canvas canvas, Size size) {
     const left = kMargin;
     final right = size.width - kMargin;
