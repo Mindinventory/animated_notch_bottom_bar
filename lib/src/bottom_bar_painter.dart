@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 
 class BottomBarPainter extends CustomPainter {
-  BottomBarPainter({@required this.position, this.color})
+  BottomBarPainter({@required this.position, this.color, this.showShadow})
       : _paint = Paint()
           ..color = color ?? Colors.white
-          ..isAntiAlias = true;
+          ..isAntiAlias = true,
+        _shadowColor = Colors.grey.shade600;
 
   /// position
   final double? position;
@@ -18,6 +19,12 @@ class BottomBarPainter extends CustomPainter {
 
   /// Paint value to custom painter
   final Paint? _paint;
+
+  /// Shadow Color
+  final Color? _shadowColor;
+
+  /// Boolean to show shadow
+  final bool? showShadow;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -72,7 +79,9 @@ class BottomBarPainter extends CustomPainter {
         const Offset(kTopRadius, -kTopRadius),
         radius: const Radius.circular(kTopRadius),
       );
-
+    if (this.showShadow!) {
+      canvas..drawShadow(path, _shadowColor!, 5.0, true);
+    }
     canvas.drawPath(path, _paint!);
   }
 
@@ -90,7 +99,9 @@ class BottomBarPainter extends CustomPainter {
         0,
         kPi * 2,
       );
-
+    if (this.showShadow!) {
+      canvas..drawShadow(path, _shadowColor!, 5.0, true);
+    }
     canvas.drawPath(path, _paint!);
   }
 }

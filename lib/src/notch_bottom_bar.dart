@@ -23,6 +23,8 @@ class NotchBottomBar extends StatefulWidget {
   /// Color of inactive item
   final Color? labelColor;
 
+  /// Boolean to show shadow
+  final bool? showShadow;
   const NotchBottomBar({
     Key? key,
     required this.controller,
@@ -30,6 +32,7 @@ class NotchBottomBar extends StatefulWidget {
     required this.onTap,
     this.color = Colors.white,
     this.labelColor,
+    this.showShadow = true,
   }) : super(key: key);
 
   @override
@@ -75,6 +78,7 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
                     painter: BottomBarPainter(
                       position: _itemPosByScrollPosition(scrollPosition),
                       color: widget.color,
+                      showShadow: widget.showShadow,
                     ),
                   ),
                   for (var i = 0; i < widget.items!.length; i++) ...[
