@@ -1,6 +1,6 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar_src.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const BottomBarItems(
       inActiveItem: Icon(
         Icons.star,
+        color: Colors.blueGrey,
       ),
       activeItem: Icon(
         Icons.star,
@@ -63,23 +64,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       itemLabel: 'Page 2',
     ),
+
+    ///svg example
     BottomBarItems(
       inActiveItem: SvgPicture.asset(
         'assets/search_icon.svg',
-        height: 20,
-        width: 20,
+        color: Colors.blueGrey,
       ),
       activeItem: SvgPicture.asset(
         'assets/search_icon.svg',
-        height: 20,
-        width: 20,
+        color: Colors.black,
       ),
       itemLabel: 'Page 3',
     ),
     const BottomBarItems(
       inActiveItem: Icon(
         Icons.settings,
-        color: Colors.grey,
+        color: Colors.blueGrey,
       ),
       activeItem: Icon(
         Icons.settings,
@@ -90,10 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
     const BottomBarItems(
       inActiveItem: Icon(
         Icons.person,
+        color: Colors.blueGrey,
       ),
       activeItem: Icon(
         Icons.person,
-        color: Colors.yellowAccent,
+        color: Colors.yellow,
       ),
       itemLabel: 'Page 5',
     ),
@@ -127,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? NotchBottomBar(
               pageController: _pageController,
+              color: Colors.white,
               showLabel: false,
               bottomBarItems: List.generate(
                   bottomBarPages.length, (index) => _bottomBarItemsList[index]),

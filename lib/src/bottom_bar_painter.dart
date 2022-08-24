@@ -14,7 +14,7 @@ class BottomBarPainter extends CustomPainter {
   /// position
   final double? position;
 
-  /// Color for the toolbar
+  /// Color for the bottom bar
   final Color? color;
 
   /// Paint value to custom painter

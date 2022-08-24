@@ -115,7 +115,7 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
                             painter: BottomBarPainter(
                               position:
                                   _itemPosByScrollPosition(scrollPosition),
-                              color: /*widget.color*/ Colors.white,
+                              color: widget.color ,
                               showShadow: widget.showShadow,
                             ),
                           ),
