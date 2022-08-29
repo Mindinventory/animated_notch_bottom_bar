@@ -86,6 +86,20 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
   ...
 )
 ```
+##### Show/hide item label and style
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+...
+   showLabel: true,
+   itemLabelStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.0
+                  ),
+  ...
+)
+```
+
 ### AnimatedNotchBottomBar
 - `pageController` - the page controller.
 - `bottomBarItems` - navigation items, required more than one item and less than six.
