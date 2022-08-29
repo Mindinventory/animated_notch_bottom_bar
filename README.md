@@ -92,7 +92,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 - `onTap` - required to listen when an item is tapped it provides the selected item's index.
 - `color` - the bottom bar's background color.
 - `showLabel`: To show or hide the label under bottom bar item.
-- `labelColor` - the bottom bar's unselected item color.
+- `itemLabelStyle` - the bottom bar's item text style.
 - `showShadow` - if false the bottom bar's elevation will be removed.
 - `showBlurBottomBar` - if true the bottom bar will look blur.
 - `blurOpacity` - to set opacity of blur effect.

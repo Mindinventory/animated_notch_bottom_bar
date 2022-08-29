@@ -9,9 +9,9 @@ class BottomBarUnActiveItem extends StatelessWidget {
   const BottomBarUnActiveItem(this.index,
       {this.itemWidget,
       this.label,
-      this.labelColor,
       this.onTap,
-      this.showLabel});
+      this.showLabel,
+      this.labelStyle});
 
   /// item index
   final int index;
@@ -25,8 +25,8 @@ class BottomBarUnActiveItem extends StatelessWidget {
   /// Boolean to show the item label
   final bool? showLabel;
 
-  /// Value to indicate the icon color
-  final Color? labelColor;
+  /// Value to indicate the lable Style
+  final TextStyle? labelStyle;
 
   /// Function called when an item was tapped
   final ValueChanged<int>? onTap;
@@ -44,10 +44,11 @@ class BottomBarUnActiveItem extends StatelessWidget {
               const SizedBox(height: 5.0),
               Text(
                 label!,
-                style: TextStyle(
-                  color: labelColor ?? Colors.grey[700],
-                  fontSize: 12.0,
-                ),
+                style: labelStyle ??
+                    TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 12.0,
+                    ),
               ),
             ],
           ],

@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: const Text('Animated Notch Bottom Bar'),
       ),

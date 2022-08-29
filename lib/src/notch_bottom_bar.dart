@@ -22,14 +22,14 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   /// Color of bottom bar
   final Color color;
 
-  /// Color of inactive item
-  final Color? labelColor;
-
   /// Boolean to show shadow
   final bool? showShadow;
 
   /// Boolean to show bottom text
   final bool? showLabel;
+
+  /// TextStyle to show bottom text
+  final TextStyle? itemLabelStyle;
 
   ///Boolean to show blur effect
   final bool? showBlurBottomBar;
@@ -49,7 +49,7 @@ class AnimatedNotchBottomBar extends StatefulWidget {
       required this.bottomBarItems,
       required this.onTap,
       this.color = Colors.white,
-      this.labelColor,
+      this.itemLabelStyle,
       this.showShadow = true,
       this.showLabel = true,
       this.showBlurBottomBar = false,
@@ -148,9 +148,9 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                                 itemWidget:
                                     widget.bottomBarItems![i].inActiveItem!,
                                 label: widget.bottomBarItems![i].itemLabel,
-                                labelColor: widget.labelColor,
                                 onTap: widget.onTap,
-                                showLabel: widget.showLabel),
+                                showLabel: widget.showLabel,
+                                labelStyle: widget.itemLabelStyle),
                           ),
                       ],
                     ],
