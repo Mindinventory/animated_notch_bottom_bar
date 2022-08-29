@@ -41,65 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
     const Page4(),
     const Page5(),
   ];
-  final List<BottomBarItems> _bottomBarItemsList = [
-    const BottomBarItems(
-      inActiveItem: Icon(
-        Icons.home_filled,
-        color: Colors.blueGrey,
-      ),
-      activeItem: Icon(
-        Icons.home_filled,
-        color: Colors.blueAccent,
-      ),
-      itemLabel: 'Page 1',
-    ),
-    const BottomBarItems(
-      inActiveItem: Icon(
-        Icons.star,
-        color: Colors.blueGrey,
-      ),
-      activeItem: Icon(
-        Icons.star,
-        color: Colors.blueAccent,
-      ),
-      itemLabel: 'Page 2',
-    ),
-
-    ///svg example
-    BottomBarItems(
-      inActiveItem: SvgPicture.asset(
-        'assets/search_icon.svg',
-        color: Colors.blueGrey,
-      ),
-      activeItem: SvgPicture.asset(
-        'assets/search_icon.svg',
-        color: Colors.black,
-      ),
-      itemLabel: 'Page 3',
-    ),
-    const BottomBarItems(
-      inActiveItem: Icon(
-        Icons.settings,
-        color: Colors.blueGrey,
-      ),
-      activeItem: Icon(
-        Icons.settings,
-        color: Colors.pink,
-      ),
-      itemLabel: 'Page 4',
-    ),
-    const BottomBarItems(
-      inActiveItem: Icon(
-        Icons.person,
-        color: Colors.blueGrey,
-      ),
-      activeItem: Icon(
-        Icons.person,
-        color: Colors.yellow,
-      ),
-      itemLabel: 'Page 5',
-    ),
-  ];
 
   @override
   void dispose() {
@@ -131,8 +72,65 @@ class _MyHomePageState extends State<MyHomePage> {
               pageController: _pageController,
               color: Colors.white,
               showLabel: false,
-              bottomBarItems: List.generate(
-                  bottomBarPages.length, (index) => _bottomBarItemsList[index]),
+              bottomBarItems: [
+                const BottomBarItems(
+                  inActiveItem: Icon(
+                    Icons.home_filled,
+                    color: Colors.blueGrey,
+                  ),
+                  activeItem: Icon(
+                    Icons.home_filled,
+                    color: Colors.blueAccent,
+                  ),
+                  itemLabel: 'Page 1',
+                ),
+                const BottomBarItems(
+                  inActiveItem: Icon(
+                    Icons.star,
+                    color: Colors.blueGrey,
+                  ),
+                  activeItem: Icon(
+                    Icons.star,
+                    color: Colors.blueAccent,
+                  ),
+                  itemLabel: 'Page 2',
+                ),
+
+                ///svg example
+                BottomBarItems(
+                  inActiveItem: SvgPicture.asset(
+                    'assets/search_icon.svg',
+                    color: Colors.blueGrey,
+                  ),
+                  activeItem: SvgPicture.asset(
+                    'assets/search_icon.svg',
+                    color: Colors.black,
+                  ),
+                  itemLabel: 'Page 3',
+                ),
+                const BottomBarItems(
+                  inActiveItem: Icon(
+                    Icons.settings,
+                    color: Colors.blueGrey,
+                  ),
+                  activeItem: Icon(
+                    Icons.settings,
+                    color: Colors.pink,
+                  ),
+                  itemLabel: 'Page 4',
+                ),
+                const BottomBarItems(
+                  inActiveItem: Icon(
+                    Icons.person,
+                    color: Colors.blueGrey,
+                  ),
+                  activeItem: Icon(
+                    Icons.person,
+                    color: Colors.yellow,
+                  ),
+                  itemLabel: 'Page 5',
+                ),
+              ],
               onTap: (index) {
                 _pageController.animateToPage(
                   index,
