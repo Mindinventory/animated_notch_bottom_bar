@@ -9,7 +9,7 @@ import 'constants/constants.dart';
 import 'models/bottom_bar_item_model.dart';
 
 /// Class to generate the NotchBottomBar
-class NotchBottomBar extends StatefulWidget {
+class AnimatedNotchBottomBar extends StatefulWidget {
   /// Controller for animation
   final PageController? pageController;
 
@@ -43,7 +43,7 @@ class NotchBottomBar extends StatefulWidget {
   /// Filter Y
   final double? filterY;
 
-  const NotchBottomBar(
+  const AnimatedNotchBottomBar(
       {Key? key,
       required this.pageController,
       required this.bottomBarItems,
@@ -59,10 +59,10 @@ class NotchBottomBar extends StatefulWidget {
       : super(key: key);
 
   @override
-  _NotchBottomBarState createState() => _NotchBottomBarState();
+  _AnimatedNotchBottomBarState createState() => _AnimatedNotchBottomBarState();
 }
 
-class _NotchBottomBarState extends State<NotchBottomBar> {
+class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
   double? _screenWidth;
   int maxCount = 5;
 
@@ -115,7 +115,7 @@ class _NotchBottomBarState extends State<NotchBottomBar> {
                             painter: BottomBarPainter(
                               position:
                                   _itemPosByScrollPosition(scrollPosition),
-                              color: widget.color ,
+                              color: widget.color,
                               showShadow: widget.showShadow,
                             ),
                           ),

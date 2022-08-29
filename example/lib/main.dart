@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
-          ? NotchBottomBar(
+          ? AnimatedNotchBottomBar(
               pageController: _pageController,
               color: Colors.white,
               showLabel: false,
