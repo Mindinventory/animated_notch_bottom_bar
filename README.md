@@ -118,6 +118,12 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 - `activeItem` - the selected item.
 - `inActiveItem` - the inactive item.
 
+## Guideline for contributors
+Contribution towards our repository is always welcome, we request contributors to create a pull request to the develop branch only.
+
+# LICENSE!
+Animated Segment is [MIT-licensed](https://github.com/Mindinventory/animated_segment/blob/master/LICENSE "MIT-licensed").
+
 # Let us know!
 We’d be really happy if you send us links to your projects where you use our component. Just send an email to sales@mindinventory.com and do let us know if you have any questions or suggestion regarding our work.
 
