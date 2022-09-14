@@ -8,6 +8,7 @@ A Flutter package for animating the position of selected item in bottomNavigatio
 * Create an optimized bottom navigation bar with beautiful animation.
 * Supports blur effect like iOS Tab View.
 
+<img src="https://cdn.dribbble.com/users/1233499/screenshots/4844696/preview.gif" > 
 
 ## Getting Started
 
@@ -78,25 +79,25 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
-...
+    ...
     showBlurBottomBar: true,
     blurOpacity: 0.2,
     blurFilterX: 5.0,
     blurFilterY: 10.0,
-  ...
+    ...
 )
 ```
 ##### Show/hide item label and style
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
-...
-   showLabel: true,
-   itemLabelStyle: TextStyle(
+     ...
+     showLabel: true,
+     itemLabelStyle: TextStyle(
                       color: Colors.black,
                       fontSize: 16.0
-                  ),
-  ...
+                    ),
+     ...
 )
 ```
 
@@ -117,6 +118,12 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 - `title` - the bottom bar item label
 - `activeItem` - the selected item.
 - `inActiveItem` - the inactive item.
+
+## Guideline for contributors
+Contribution towards our repository is always welcome, we request contributors to create a pull request to the develop branch only.
+
+# LICENSE!
+Animated Segment is [MIT-licensed](https://github.com/Mindinventory/animated_segment/blob/master/LICENSE "MIT-licensed").
 
 # Let us know!
 We’d be really happy if you send us links to your projects where you use our component. Just send an email to sales@mindinventory.com and do let us know if you have any questions or suggestion regarding our work.
