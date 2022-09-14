@@ -25,7 +25,7 @@ class BottomBarUnActiveItem extends StatelessWidget {
   /// Boolean to show the item label
   final bool? showLabel;
 
-  /// Value to indicate the lable Style
+  /// Value to indicate the label Style
   final TextStyle? labelStyle;
 
   /// Function called when an item was tapped
