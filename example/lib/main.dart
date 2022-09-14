@@ -24,7 +24,7 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -188,6 +188,5 @@ class Page5 extends StatelessWidget {
     return Container(
         color: Colors.lightGreenAccent,
         child: const Center(child: Text('Page 4')));
-    ;
   }
 }
