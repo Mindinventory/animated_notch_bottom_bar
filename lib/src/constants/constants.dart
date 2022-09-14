@@ -7,7 +7,7 @@ const double kHeight = 62.0;
 /// notch circle circle radius
 const double kCircleRadius = 30.0;
 
-/// mergin between notch and circle
+/// margin between notch and circle
 const double kCircleMargin = 8.0;
 
 const double kTopRadius = 10.0;

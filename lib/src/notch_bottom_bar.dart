@@ -76,7 +76,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
   Widget build(BuildContext context) {
     /// throws exception if list length is more then 5
     if (widget.bottomBarItems!.length > 5) {
-      throw Exception(' Bottom bar item length shouldn\'t be more then 5');
+      throw Exception(' Bottom bar item length should not be more then 5');
     }
     final size = MediaQuery.of(context).size;
     final width = size.width;
