@@ -8,6 +8,7 @@ A Flutter package for animating the position of selected item in bottomNavigatio
 * Create an optimized bottom navigation bar with beautiful animation.
 * Supports blur effect like iOS Tab View.
 
+<img src="https://cdn.dribbble.com/users/1233499/screenshots/4844696/preview.gif" > 
 
 ## Getting Started
 

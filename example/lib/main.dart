@@ -56,10 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Animated Notch Bottom Bar'),
-      ),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
@@ -70,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
               pageController: _pageController,
-              color: Colors.lightBlueAccent,
+              color: Colors.white,
               showLabel: false,
               bottomBarItems: [
                 const BottomBarItems(
@@ -149,7 +145,8 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Page 1'));
+    return Container(
+        color: Colors.yellow, child: const Center(child: Text('Page 1')));
   }
 }
 
@@ -158,7 +155,8 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Page 2'));
+    return Container(
+        color: Colors.green, child: const Center(child: Text('Page 2')));
   }
 }
 
@@ -167,7 +165,8 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Page 3'));
+    return Container(
+        color: Colors.red, child: const Center(child: Text('Page 3')));
   }
 }
 
@@ -176,7 +175,8 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Page 4'));
+    return Container(
+        color: Colors.blue, child: const Center(child: Text('Page 4')));
   }
 }
 
@@ -185,6 +185,9 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Page 5'));
+    return Container(
+        color: Colors.lightGreenAccent,
+        child: const Center(child: Text('Page 4')));
+    ;
   }
 }
