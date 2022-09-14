@@ -78,25 +78,25 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
-...
+    ...
     showBlurBottomBar: true,
     blurOpacity: 0.2,
     blurFilterX: 5.0,
     blurFilterY: 10.0,
-  ...
+    ...
 )
 ```
 ##### Show/hide item label and style
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
-...
-   showLabel: true,
-   itemLabelStyle: TextStyle(
+     ...
+     showLabel: true,
+     itemLabelStyle: TextStyle(
                       color: Colors.black,
                       fontSize: 16.0
-                  ),
-  ...
+                    ),
+     ...
 )
 ```
 
