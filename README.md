@@ -121,7 +121,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 ```
 
 ### AnimatedNotchBottomBar
-- `pageController` - the page controller.
+- `pageController` - the page controller which allows you to control the page animation duration and curve.
 - `bottomBarItems` - navigation items, required more than one item and less than six.
 - `onTap` - required to listen when an item is tapped it provides the selected item's index.
 - `color` - the bottom bar's background color.
