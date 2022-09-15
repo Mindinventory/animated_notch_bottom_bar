@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Animated Notch Bottom Bar',
+      title: 'Animated Notch Bottom Bar',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -128,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
               onTap: (index) {
+                /// control your animation using page controller
                 _pageController.animateToPage(
                   index,
                   duration: const Duration(milliseconds: 500),
