@@ -14,7 +14,7 @@
 <img src="https://img.shields.io/badge/platform-Windows-deepskyblue">
 </a>
 <a href=""><img src="https://app.codacy.com/project/badge/Grade/dc683c9cc61b499fa7cdbf54e4d9ff35"/></a>
-<a href="https://github.com/Mindinventory/animated_segment/blob/master/LICENSE" style="pointer-events: stroke;" target="_blank">
+<a href="https://github.com/Mindinventory/animated_notch_bottom_bar/blob/main/LICENSE" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/github/license/Mindinventory/animated_notch_bottom_bar"></a>
 <a href="https://pub.dev/packages/animated_notch_bottom_bar"></a>
 <a href="https://github.com/Mindinventory/animated_notch_bottom_bar"><img src="https://img.shields.io/github/stars/Mindinventory/animated_notch_bottom_bar?style=social" alt="MIT License"></a>
@@ -121,7 +121,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 ```
 
 ### AnimatedNotchBottomBar
-- `pageController` - the page controller.
+- `pageController` - the page controller which allows you to control the page animation duration and curve.
 - `bottomBarItems` - navigation items, required more than one item and less than six.
 - `onTap` - required to listen when an item is tapped it provides the selected item's index.
 - `color` - the bottom bar's background color.
@@ -142,7 +142,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 Contribution towards our repository is always welcome, we request contributors to create a pull request to the develop branch only.
 
 # LICENSE!
-Animated Segment is [MIT-licensed](https://github.com/Mindinventory/animated_segment/blob/master/LICENSE "MIT-licensed").
+Animated Notch Bottom Bar is [MIT-licensed](https://github.com/Mindinventory/animated_notch_bottom_bar/blob/main/LICENSE "MIT-licensed").
 
 # Let us know!
 We’d be really happy if you send us links to your projects where you use our component. Just send an email to sales@mindinventory.com and do let us know if you have any questions or suggestion regarding our work.
