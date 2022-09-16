@@ -1,6 +1,13 @@
 # Animated Notch Bottom Bar
+<a href="https://pub.dev/packages/animated_notch_bottom_bar"><img src="https://img.shields.io/pub/v/animated_notch_bottom_bar.svg?label=animated_notch_bottom_bar" alt="animated_notch_bottom_bar version"></a>
 <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/flutter-website-deepskyblue.svg" alt="Flutter Website"></a>
 <a href="https://dart.dev"><img src="https://img.shields.io/badge/dart-website-deepskyblue.svg" alt="Dart Website"></a>
+<a href="https://developer.android.com" style="pointer-events: stroke;" target="_blank">
+<img src="https://img.shields.io/badge/platform-android-blue">
+</a>
+<a href="https://developer.apple.com/ios/" style="pointer-events: stroke;" target="_blank">
+<img src="https://img.shields.io/badge/platform-iOS-blue">
+</a>
 <a href="" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/platform-Web-deepskyblue">
 </a>
