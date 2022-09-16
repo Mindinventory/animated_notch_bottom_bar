@@ -43,7 +43,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  animated_notch_bottom_bar: ^0.0.1
+  animated_notch_bottom_bar: ^0.0.4
 ```
 ## Basic Usage
 
@@ -146,7 +146,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 - `inActiveItem` - the inactive item.
 
 ## Guideline for contributors
-Contribution towards our repository is always welcome, we request contributors to create a pull request to the develop branch only.
+Contribution towards our repository is always welcome, we request contributors to create a pull request to the main branch only.
 
 # LICENSE!
 Animated Notch Bottom Bar is [MIT-licensed](https://github.com/Mindinventory/animated_notch_bottom_bar/blob/main/LICENSE "MIT-licensed").
