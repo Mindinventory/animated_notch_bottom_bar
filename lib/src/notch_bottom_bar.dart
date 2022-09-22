@@ -78,6 +78,10 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
     if (widget.bottomBarItems!.length > 5) {
       throw Exception(' Bottom bar item length should not be more then 5');
     }
+    if (widget.pageController!.initialPage > widget.bottomBarItems!.length) {
+      throw Exception(
+          ' Initial page index cannot be higher than bottom bar items lenght');
+    }
     final size = MediaQuery.of(context).size;
     final width = size.width;
     const height = kHeight + kMargin * 2;
@@ -87,13 +91,13 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
         : AnimatedBuilder(
             animation: widget.pageController!,
             builder: (BuildContext _, Widget? child) {
-              double scrollPosition = 0.0;
-              int currentIndex = 0;
+              double scrollPosition =
+                  widget.pageController!.initialPage.toDouble();
+              int currentIndex = widget.pageController!.initialPage;
               if (widget.pageController?.hasClients ?? false) {
                 scrollPosition = widget.pageController!.page!;
                 currentIndex = (widget.pageController!.page! + 0.5).toInt();
               }
-
               return ClipRRect(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
