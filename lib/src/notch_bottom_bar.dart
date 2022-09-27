@@ -78,7 +78,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
     if (widget.bottomBarItems!.length > 5) {
       throw Exception(' Bottom bar item length should not be more then 5');
     }
-    if (widget.pageController!.initialPage > widget.bottomBarItems!.length) {
+    if (widget.pageController!.initialPage >
+        widget.bottomBarItems!.length - 1) {
       throw Exception(
           ' Initial page index cannot be higher than bottom bar items lenght');
     }
