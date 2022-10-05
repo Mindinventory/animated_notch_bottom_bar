@@ -5,11 +5,18 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 
 class BottomBarPainter extends CustomPainter {
-  BottomBarPainter({@required this.position, this.color, this.showShadow})
+  BottomBarPainter(
+      {required this.position,
+      this.color,
+      this.showShadow,
+      required this.notchColor})
       : _paint = Paint()
           ..color = color ?? Colors.white
           ..isAntiAlias = true,
-        _shadowColor = Colors.grey.shade600;
+        _shadowColor = Colors.grey.shade600,
+        _notchPaint = Paint()
+          ..color = notchColor ?? color ?? Colors.white
+          ..isAntiAlias = true;
 
   /// position
   final double? position;
@@ -25,6 +32,12 @@ class BottomBarPainter extends CustomPainter {
 
   /// Boolean to show shadow
   final bool? showShadow;
+
+  /// Paint Value of notch
+  final Paint? _notchPaint;
+
+  /// Color for the notch
+  final Color? notchColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -103,6 +116,6 @@ class BottomBarPainter extends CustomPainter {
     if (this.showShadow!) {
       canvas..drawShadow(path, _shadowColor!, 5.0, true);
     }
-    canvas.drawPath(path, _paint!);
+    canvas.drawPath(path, _notchPaint!);
   }
 }
