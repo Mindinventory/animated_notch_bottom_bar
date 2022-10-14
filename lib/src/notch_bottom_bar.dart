@@ -23,25 +23,25 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   final Color color;
 
   /// Boolean to show shadow
-  final bool? showShadow;
+  final bool showShadow;
 
   /// Boolean to show bottom text
-  final bool? showLabel;
+  final bool showLabel;
 
   /// TextStyle to show bottom text
   final TextStyle? itemLabelStyle;
 
   ///Boolean to show blur effect
-  final bool? showBlurBottomBar;
+  final bool showBlurBottomBar;
 
   ///Opacity
-  final double? blurOpacity;
+  final double blurOpacity;
 
   /// Filter X
-  final double? blurFilterX;
+  final double blurFilterX;
 
   /// Filter Y
-  final double? blurFilterY;
+  final double blurFilterY;
 
   /// Color of bottom bar
   final Color notchColor;
@@ -114,17 +114,16 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                     children: <Widget>[
                       BackdropFilter(
                         filter: ImageFilter.blur(
-                          sigmaX: widget.showBlurBottomBar!
-                              ? widget.blurFilterX!
+                          sigmaX: widget.showBlurBottomBar
+                              ? widget.blurFilterX
                               : 0.0,
-                          sigmaY: widget.showBlurBottomBar!
-                              ? widget.blurFilterY!
+                          sigmaY: widget.showBlurBottomBar
+                              ? widget.blurFilterY
                               : 0.0,
                         ),
                         child: Opacity(
-                          opacity: widget.showBlurBottomBar!
-                              ? widget.blurOpacity!
-                              : 1,
+                          opacity:
+                              widget.showBlurBottomBar ? widget.blurOpacity : 1,
                           child: CustomPaint(
                             size: Size(width, height),
                             painter: BottomBarPainter(
