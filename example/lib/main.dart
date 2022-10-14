@@ -28,8 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  /// Controller to handle PageView
-  final _pageController = PageController();
+  /// Controller to handle PageView and also handles initial page
+  final _pageController = PageController(initialPage: 2);
 
   int maxCount = 5;
 
