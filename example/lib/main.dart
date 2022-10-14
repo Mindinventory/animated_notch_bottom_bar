@@ -28,8 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  /// Controller to handle PageView
-  final _pageController = PageController();
+  /// Controller to handle PageView and also handles initial page
+  final _pageController = PageController(initialPage: 2);
 
   int maxCount = 5;
 
@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
               pageController: _pageController,
               color: Colors.white,
               showLabel: false,
+              notchColor: Colors.black87,
               bottomBarItems: [
                 const BottomBarItems(
                   inActiveItem: Icon(
@@ -100,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   activeItem: SvgPicture.asset(
                     'assets/search_icon.svg',
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                   itemLabel: 'Page 3',
                 ),

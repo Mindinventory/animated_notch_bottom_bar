@@ -43,6 +43,9 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   /// Filter Y
   final double? blurFilterY;
 
+  /// Color of bottom bar
+  final Color notchColor;
+
   const AnimatedNotchBottomBar(
       {Key? key,
       required this.pageController,
@@ -55,7 +58,8 @@ class AnimatedNotchBottomBar extends StatefulWidget {
       this.showBlurBottomBar = false,
       this.blurOpacity = 0.5,
       this.blurFilterX = 5.0,
-      this.blurFilterY = 10.0})
+      this.blurFilterY = 10.0,
+      this.notchColor = Colors.white})
       : super(key: key);
 
   @override
@@ -78,6 +82,12 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
     if (widget.bottomBarItems!.length > 5) {
       throw Exception(' Bottom bar item length should not be more then 5');
     }
+    if (widget.pageController!.initialPage >
+        widget.bottomBarItems!.length - 1) {
+      throw Exception(
+          ' Initial page index cannot be higher than bottom bar items length');
+    }
+
     final size = MediaQuery.of(context).size;
     final width = size.width;
     const height = kHeight + kMargin * 2;
@@ -87,8 +97,11 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
         : AnimatedBuilder(
             animation: widget.pageController!,
             builder: (BuildContext _, Widget? child) {
-              double scrollPosition = 0.0;
-              int currentIndex = 0;
+              ///to set any initial page
+              double scrollPosition =
+                  widget.pageController!.initialPage.toDouble();
+              int currentIndex = widget.pageController!.initialPage;
+
               if (widget.pageController?.hasClients ?? false) {
                 scrollPosition = widget.pageController!.page!;
                 currentIndex = (widget.pageController!.page! + 0.5).toInt();
@@ -116,11 +129,11 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                           child: CustomPaint(
                             size: Size(width, height),
                             painter: BottomBarPainter(
-                              position:
-                                  _itemPosByScrollPosition(scrollPosition),
-                              color: widget.color,
-                              showShadow: widget.showShadow,
-                            ),
+                                position:
+                                    _itemPosByScrollPosition(scrollPosition),
+                                color: widget.color,
+                                showShadow: widget.showShadow,
+                                notchColor: widget.notchColor),
                           ),
                         ),
                       ),
