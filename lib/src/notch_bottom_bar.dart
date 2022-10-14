@@ -157,7 +157,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                             left: kCircleMargin + _itemPosByIndex(i),
                             child: BottomBarInActiveItem(i,
                                 itemWidget:
-                                    widget.bottomBarItems[i].inActiveItem!,
+                                    widget.bottomBarItems[i].inActiveItem,
                                 label: widget.bottomBarItems[i].itemLabel,
                                 onTap: widget.onTap,
                                 showLabel: widget.showLabel,
