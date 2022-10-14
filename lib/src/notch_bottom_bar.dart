@@ -67,7 +67,7 @@ class AnimatedNotchBottomBar extends StatefulWidget {
 }
 
 class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
-  double? _screenWidth;
+  late double _screenWidth;
   int maxCount = 5;
 
   @override
@@ -173,12 +173,12 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
   }
 
   double _firstItemPosition() {
-    return (_screenWidth! - kMargin * 2) * 0.1;
+    return (_screenWidth - kMargin * 2) * 0.1;
   }
 
   double _lastItemPosition() {
-    return _screenWidth! -
-        (_screenWidth! - kMargin * 2) * 0.1 -
+    return _screenWidth -
+        (_screenWidth - kMargin * 2) * 0.1 -
         (kCircleRadius + kCircleMargin) * 2;
   }
 
