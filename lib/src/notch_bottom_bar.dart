@@ -155,7 +155,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                           Positioned(
                             top: kMargin + (kHeight - kCircleRadius * 2) / 2,
                             left: kCircleMargin + _itemPosByIndex(i),
-                            child: BottomBarUnActiveItem(i,
+                            child: BottomBarInActiveItem(i,
                                 itemWidget:
                                     widget.bottomBarItems[i].inActiveItem!,
                                 label: widget.bottomBarItems[i].itemLabel,
