@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BottomBarItems {
-  const BottomBarItems({
+class BottomBarItem {
+  const BottomBarItem({
     this.inActiveItem,
     this.activeItem,
     this.itemLabel,

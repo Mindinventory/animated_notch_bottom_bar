@@ -14,7 +14,7 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   final PageController pageController;
 
   /// List of items of bottom bar
-  final List<BottomBarItems> bottomBarItems;
+  final List<BottomBarItem> bottomBarItems;
 
   /// Function called when an item was tapped
   final ValueChanged<int> onTap;
