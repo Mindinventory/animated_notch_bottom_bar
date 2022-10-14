@@ -43,6 +43,9 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   /// Filter Y
   final double? blurFilterY;
 
+  /// Color of bottom bar
+  final Color notchColor;
+
   const AnimatedNotchBottomBar(
       {Key? key,
       required this.pageController,
@@ -55,7 +58,8 @@ class AnimatedNotchBottomBar extends StatefulWidget {
       this.showBlurBottomBar = false,
       this.blurOpacity = 0.5,
       this.blurFilterX = 5.0,
-      this.blurFilterY = 10.0})
+      this.blurFilterY = 10.0,
+      this.notchColor = Colors.white})
       : super(key: key);
 
   @override
@@ -125,11 +129,11 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                           child: CustomPaint(
                             size: Size(width, height),
                             painter: BottomBarPainter(
-                              position:
-                                  _itemPosByScrollPosition(scrollPosition),
-                              color: widget.color,
-                              showShadow: widget.showShadow,
-                            ),
+                                position:
+                                    _itemPosByScrollPosition(scrollPosition),
+                                color: widget.color,
+                                showShadow: widget.showShadow,
+                                notchColor: widget.notchColor),
                           ),
                         ),
                       ),

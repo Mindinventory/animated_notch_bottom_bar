@@ -43,7 +43,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  animated_notch_bottom_bar: ^0.0.4
+  animated_notch_bottom_bar: ^0.0.5
 ```
 ## Basic Usage
 
@@ -127,6 +127,16 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 )
 ```
 
+##### Set Notch's color
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+     ...
+      notchColor: Colors.black87,     
+     ...
+)
+```
+
 ### AnimatedNotchBottomBar
 - `pageController` - the page controller which allows you to control the page animation duration and curve.
 - `bottomBarItems` - navigation items, required more than one item and less than six.
@@ -139,6 +149,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 - `blurOpacity` - to set opacity of blur effect.
 - `blurFilterX` - Creates an image filter that applies a Gaussian blur at x axis.
 - `blurFilterY` - Creates an image filter that applies a Gaussian blur at y axis.
+- `notchColor` - Customizable notch's color.
 
 ### BottomBarItems
 - `title` - the bottom bar item label
