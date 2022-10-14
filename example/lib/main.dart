@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   activeItem: SvgPicture.asset(
                     'assets/search_icon.svg',
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                   itemLabel: 'Page 3',
                 ),
