@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
               showLabel: false,
               notchColor: Colors.black87,
               bottomBarItems: [
-                const BottomBarItems(
+                const BottomBarItem(
                   inActiveItem: Icon(
                     Icons.home_filled,
                     color: Colors.blueGrey,
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 1',
                 ),
-                const BottomBarItems(
+                const BottomBarItem(
                   inActiveItem: Icon(
                     Icons.star,
                     color: Colors.blueGrey,
@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 
                 ///svg example
-                BottomBarItems(
+                BottomBarItem(
                   inActiveItem: SvgPicture.asset(
                     'assets/search_icon.svg',
                     color: Colors.blueGrey,
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 3',
                 ),
-                const BottomBarItems(
+                const BottomBarItem(
                   inActiveItem: Icon(
                     Icons.settings,
                     color: Colors.blueGrey,
@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 4',
                 ),
-                const BottomBarItems(
+                const BottomBarItem(
                   inActiveItem: Icon(
                     Icons.person,
                     color: Colors.blueGrey,

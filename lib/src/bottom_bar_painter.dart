@@ -7,37 +7,37 @@ import 'constants/constants.dart';
 class BottomBarPainter extends CustomPainter {
   BottomBarPainter(
       {required this.position,
-      this.color,
-      this.showShadow,
+      required this.color,
+      required this.showShadow,
       required this.notchColor})
       : _paint = Paint()
-          ..color = color ?? Colors.white
+          ..color = color
           ..isAntiAlias = true,
         _shadowColor = Colors.grey.shade600,
         _notchPaint = Paint()
-          ..color = notchColor ?? color ?? Colors.white
+          ..color = notchColor
           ..isAntiAlias = true;
 
   /// position
-  final double? position;
+  final double position;
 
   /// Color for the bottom bar
-  final Color? color;
+  final Color color;
 
   /// Paint value to custom painter
-  final Paint? _paint;
+  final Paint _paint;
 
   /// Shadow Color
-  final Color? _shadowColor;
+  final Color _shadowColor;
 
   /// Boolean to show shadow
-  final bool? showShadow;
+  final bool showShadow;
 
   /// Paint Value of notch
-  final Paint? _notchPaint;
+  final Paint _notchPaint;
 
   /// Color for the notch
-  final Color? notchColor;
+  final Color notchColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -59,7 +59,7 @@ class BottomBarPainter extends CustomPainter {
 
     final path = Path()
       ..moveTo(left + kTopRadius, top)
-      ..lineTo(position! - kTopRadius, top)
+      ..lineTo(position - kTopRadius, top)
       ..relativeArcToPoint(
         const Offset(kTopRadius, kTopRadius),
         radius: const Radius.circular(kTopRadius),
@@ -93,10 +93,10 @@ class BottomBarPainter extends CustomPainter {
         const Offset(kTopRadius, -kTopRadius),
         radius: const Radius.circular(kTopRadius),
       );
-    if (this.showShadow!) {
-      canvas..drawShadow(path, _shadowColor!, 5.0, true);
+    if (this.showShadow) {
+      canvas..drawShadow(path, _shadowColor, 5.0, true);
     }
-    canvas.drawPath(path, _paint!);
+    canvas.drawPath(path, _paint);
   }
 
   /// Function used to draw the circular indicator
@@ -105,7 +105,7 @@ class BottomBarPainter extends CustomPainter {
       ..addArc(
         Rect.fromCircle(
           center: Offset(
-            position! + kCircleMargin + kCircleRadius,
+            position + kCircleMargin + kCircleRadius,
             kMargin + kCircleMargin,
           ),
           radius: kCircleRadius,
@@ -113,9 +113,9 @@ class BottomBarPainter extends CustomPainter {
         0,
         kPi * 2,
       );
-    if (this.showShadow!) {
-      canvas..drawShadow(path, _shadowColor!, 5.0, true);
+    if (this.showShadow) {
+      canvas..drawShadow(path, _shadowColor, 5.0, true);
     }
-    canvas.drawPath(path, _notchPaint!);
+    canvas.drawPath(path, _notchPaint);
   }
 }

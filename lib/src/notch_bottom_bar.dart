@@ -11,37 +11,37 @@ import 'models/bottom_bar_item_model.dart';
 /// Class to generate the NotchBottomBar
 class AnimatedNotchBottomBar extends StatefulWidget {
   /// Controller for animation
-  final PageController? pageController;
+  final PageController pageController;
 
   /// List of items of bottom bar
-  final List<BottomBarItems>? bottomBarItems;
+  final List<BottomBarItem> bottomBarItems;
 
   /// Function called when an item was tapped
-  final ValueChanged<int>? onTap;
+  final ValueChanged<int> onTap;
 
   /// Color of bottom bar
   final Color color;
 
   /// Boolean to show shadow
-  final bool? showShadow;
+  final bool showShadow;
 
   /// Boolean to show bottom text
-  final bool? showLabel;
+  final bool showLabel;
 
   /// TextStyle to show bottom text
   final TextStyle? itemLabelStyle;
 
   ///Boolean to show blur effect
-  final bool? showBlurBottomBar;
+  final bool showBlurBottomBar;
 
   ///Opacity
-  final double? blurOpacity;
+  final double blurOpacity;
 
   /// Filter X
-  final double? blurFilterX;
+  final double blurFilterX;
 
   /// Filter Y
-  final double? blurFilterY;
+  final double blurFilterY;
 
   /// Color of bottom bar
   final Color notchColor;
@@ -67,7 +67,7 @@ class AnimatedNotchBottomBar extends StatefulWidget {
 }
 
 class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
-  double? _screenWidth;
+  late double _screenWidth;
   int maxCount = 5;
 
   @override
@@ -79,11 +79,10 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
   @override
   Widget build(BuildContext context) {
     /// throws exception if list length is more then 5
-    if (widget.bottomBarItems!.length > 5) {
-      throw Exception(' Bottom bar item length should not be more then 5');
+    if (widget.bottomBarItems.length > 5) {
+      throw Exception(' Bottom bar item length should not be more than 5');
     }
-    if (widget.pageController!.initialPage >
-        widget.bottomBarItems!.length - 1) {
+    if (widget.pageController.initialPage > widget.bottomBarItems.length - 1) {
       throw Exception(
           ' Initial page index cannot be higher than bottom bar items length');
     }
@@ -92,19 +91,19 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
     final width = size.width;
     const height = kHeight + kMargin * 2;
 
-    return widget.bottomBarItems!.length > maxCount
+    return widget.bottomBarItems.length > maxCount
         ? Container()
         : AnimatedBuilder(
-            animation: widget.pageController!,
+            animation: widget.pageController,
             builder: (BuildContext _, Widget? child) {
               ///to set any initial page
               double scrollPosition =
-                  widget.pageController!.initialPage.toDouble();
-              int currentIndex = widget.pageController!.initialPage;
+                  widget.pageController.initialPage.toDouble();
+              int currentIndex = widget.pageController.initialPage;
 
-              if (widget.pageController?.hasClients ?? false) {
-                scrollPosition = widget.pageController!.page!;
-                currentIndex = (widget.pageController!.page! + 0.5).toInt();
+              if (widget.pageController.hasClients) {
+                scrollPosition = widget.pageController.page!;
+                currentIndex = (widget.pageController.page! + 0.5).toInt();
               }
 
               return ClipRRect(
@@ -115,17 +114,16 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                     children: <Widget>[
                       BackdropFilter(
                         filter: ImageFilter.blur(
-                          sigmaX: widget.showBlurBottomBar!
-                              ? widget.blurFilterX!
+                          sigmaX: widget.showBlurBottomBar
+                              ? widget.blurFilterX
                               : 0.0,
-                          sigmaY: widget.showBlurBottomBar!
-                              ? widget.blurFilterY!
+                          sigmaY: widget.showBlurBottomBar
+                              ? widget.blurFilterY
                               : 0.0,
                         ),
                         child: Opacity(
-                          opacity: widget.showBlurBottomBar!
-                              ? widget.blurOpacity!
-                              : 1,
+                          opacity:
+                              widget.showBlurBottomBar ? widget.blurOpacity : 1,
                           child: CustomPaint(
                             size: Size(width, height),
                             painter: BottomBarPainter(
@@ -138,7 +136,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                         ),
                       ),
                       for (var i = 0;
-                          i < widget.bottomBarItems!.length;
+                          i < widget.bottomBarItems.length;
                           i++) ...[
                         if (i == currentIndex)
                           Positioned(
@@ -148,7 +146,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                                 _itemPosByScrollPosition(scrollPosition),
                             child: BottomBarActiveItem(
                               i,
-                              itemWidget: widget.bottomBarItems![i].activeItem,
+                              itemWidget: widget.bottomBarItems[i].activeItem,
                               scrollPosition: scrollPosition,
                               onTap: widget.onTap,
                             ),
@@ -157,10 +155,10 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                           Positioned(
                             top: kMargin + (kHeight - kCircleRadius * 2) / 2,
                             left: kCircleMargin + _itemPosByIndex(i),
-                            child: BottomBarUnActiveItem(i,
+                            child: BottomBarInActiveItem(i,
                                 itemWidget:
-                                    widget.bottomBarItems![i].inActiveItem!,
-                                label: widget.bottomBarItems![i].itemLabel,
+                                    widget.bottomBarItems[i].inActiveItem,
+                                label: widget.bottomBarItems[i].itemLabel,
                                 onTap: widget.onTap,
                                 showLabel: widget.showLabel,
                                 labelStyle: widget.itemLabelStyle),
@@ -175,18 +173,18 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
   }
 
   double _firstItemPosition() {
-    return (_screenWidth! - kMargin * 2) * 0.1;
+    return (_screenWidth - kMargin * 2) * 0.1;
   }
 
   double _lastItemPosition() {
-    return _screenWidth! -
-        (_screenWidth! - kMargin * 2) * 0.1 -
+    return _screenWidth -
+        (_screenWidth - kMargin * 2) * 0.1 -
         (kCircleRadius + kCircleMargin) * 2;
   }
 
   double _itemDistance() {
     return (_lastItemPosition() - _firstItemPosition()) /
-        (widget.bottomBarItems!.length - 1);
+        (widget.bottomBarItems.length - 1);
   }
 
   double _itemPosByScrollPosition(double scrollPosition) {

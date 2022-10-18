@@ -17,3 +17,7 @@
 ## 0.0.5
 
 * Notch Color Support.
+
+## 0.0.6
+
+* Code cleaning and Typo updates.
