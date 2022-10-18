@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class BottomBarItems {
-  const BottomBarItems({
-    this.inActiveItem,
-    this.activeItem,
+class BottomBarItem {
+  const BottomBarItem({
+    required this.inActiveItem,
+    required this.activeItem,
     this.itemLabel,
   });
 
   /// Selected bottom bar item
-  final Widget? inActiveItem;
+  final Widget inActiveItem;
 
   /// Un selected bottom bar item
-  final Widget? activeItem;
+  final Widget activeItem;
 
   /// bottom bar item label
   final String? itemLabel;
