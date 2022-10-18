@@ -43,7 +43,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  animated_notch_bottom_bar: ^0.0.5
+  animated_notch_bottom_bar: ^0.0.6
 ```
 ## Basic Usage
 
@@ -63,7 +63,7 @@ You can also set any animated widget.
 bottomNavigationBar:  AnimatedNotchBottomBar(
   pageController: _pageController,
   bottomBarItems: [
-    const BottomBarItems(
+    const BottomBarItem(
         inActiveItem: Icon(
            Icons.home_filled,
             color: Colors.blueGrey,
@@ -74,7 +74,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
         ),
         itemLabel: 'Page 1',
   ),
-    const BottomBarItems(
+    const BottomBarItem(
         inActiveItem: Icon(
             Icons.star,
             color: Colors.blueGrey,
@@ -87,7 +87,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
   ),
 
      ///svg item
-    BottomBarItems(
+    BottomBarItem(
         inActiveItem: SvgPicture.asset(
           'assets/search_icon.svg',
            color: Colors.blueGrey,
