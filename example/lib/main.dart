@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Controller to handle PageView and also handles initial page
-  final _pageController = PageController(initialPage: 2);
+  final _pageController = NotchBottomBarController(index: 0);
 
   int maxCount = 5;
 
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    //_pageController.dispose();
     super.dispose();
   }
 
@@ -56,16 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
-      ),
+      body: bottomBarPages[_pageController.index],
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
-              pageController: _pageController,
+              //   pageController: _pageController,
+              controller: _pageController,
               color: Colors.white,
               showLabel: false,
               notchColor: Colors.black87,
@@ -128,13 +124,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemLabel: 'Page 5',
                 ),
               ],
-              onTap: (index) {
+              onChangeTab: (index) {
                 /// control your animation using page controller
-                _pageController.animateToPage(
+                /*_pageController.jumpTo(
                   index,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeIn,
-                );
+                  */ /* duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeIn,*/ /*
+                );*/
+                // currentPage = index;
+                setState(() {});
               },
             )
           : null,
@@ -189,6 +187,6 @@ class Page5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.lightGreenAccent,
-        child: const Center(child: Text('Page 4')));
+        child: const Center(child: Text('Page 5')));
   }
 }
