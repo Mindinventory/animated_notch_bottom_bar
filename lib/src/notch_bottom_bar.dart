@@ -80,8 +80,6 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar>
   void didChangeDependencies() {
     super.didChangeDependencies();
     _screenWidth = MediaQuery.of(context).size.width;
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
   }
 
   @override
@@ -112,7 +110,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar>
         ? Container()
         : AnimatedBuilder(
             animation: _animationController,
-            builder: (BuildContext _, Widget? child) {
+            builder: (BuildContext context, Widget? child) {
               ///to set any initial page
               double scrollPosition = widget.controller.index.toDouble();
               int? currentIndex = widget.controller.index;

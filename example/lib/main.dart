@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Controller to handle PageView and also handles initial page
-  final _pageController = NotchBottomBarController(index: 0);
+  final _controller = NotchBottomBarController(index: 0);
 
   int maxCount = 5;
 
@@ -56,12 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: bottomBarPages[_pageController.index],
+      body: bottomBarPages[_controller.index],
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
               //   pageController: _pageController,
-              controller: _pageController,
+              controller: _controller,
               color: Colors.white,
               showLabel: false,
               notchColor: Colors.black87,
