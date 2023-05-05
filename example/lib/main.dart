@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,9 +31,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Controller to handle PageView and also handles initial page
+  final _pageController = PageController(initialPage: 0);
+
+  /// Controller to handle bottom nav bar and also handles initial page
   final _controller = NotchBottomBarController(index: 0);
 
   int maxCount = 5;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   /// widget list
   final List<Widget> bottomBarPages = [
@@ -43,28 +54,26 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   @override
-  void dispose() {
-    //_pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: bottomBarPages[_controller.index],
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
+      ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
-              //   pageController: _pageController,
-              controller: _controller,
+              /// Provide NotchBottomBarController
+              notchBottomBarController: _controller,
               color: Colors.white,
               showLabel: false,
               notchColor: Colors.black87,
+
+              /// restart app if you change removeMargins
+              removeMargins: false,
+              bottomBarWidth: 500,
+              durationInMilliSeconds: 300,
               bottomBarItems: [
                 const BottomBarItem(
                   inActiveItem: Icon(
@@ -124,15 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemLabel: 'Page 5',
                 ),
               ],
-              onChangeTab: (index) {
-                /// control your animation using page controller
-                /*_pageController.jumpTo(
-                  index,
-                  */ /* duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeIn,*/ /*
-                );*/
-                // currentPage = index;
-                setState(() {});
+              onTap: (index) {
+                /// perform action on tab change and to update pages you can update pages without pages
+                log('current selected index $index');
+                _pageController.jumpToPage(index);
               },
             )
           : null,
@@ -145,8 +149,7 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.yellow, child: const Center(child: Text('Page 1')));
+    return Container(color: Colors.yellow, child: const Center(child: Text('Page 1')));
   }
 }
 
@@ -155,8 +158,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.green, child: const Center(child: Text('Page 2')));
+    return Container(color: Colors.green, child: const Center(child: Text('Page 2')));
   }
 }
 
@@ -165,8 +167,7 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.red, child: const Center(child: Text('Page 3')));
+    return Container(color: Colors.red, child: const Center(child: Text('Page 3')));
   }
 }
 
@@ -175,8 +176,7 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.blue, child: const Center(child: Text('Page 4')));
+    return Container(color: Colors.blue, child: const Center(child: Text('Page 4')));
   }
 }
 
@@ -185,8 +185,6 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.lightGreenAccent,
-        child: const Center(child: Text('Page 5')));
+    return Container(color: Colors.lightGreenAccent, child: const Center(child: Text('Page 5')));
   }
 }

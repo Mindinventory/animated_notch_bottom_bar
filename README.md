@@ -43,15 +43,15 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  animated_notch_bottom_bar: ^0.0.6
+  animated_notch_bottom_bar: ^1.0.0
 ```
 ## Basic Usage
 
-Place `AnimatedNotchBottomBar` in the bottomNavigationBar parameter of a `Scaffold` widget and provide `PageController` to `AnimatedNotchBottomBar`.
+Place `AnimatedNotchBottomBar` in the bottomNavigationBar parameter of a `Scaffold` widget and provide `NotchBottomBarController` to `AnimatedNotchBottomBar`.
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
- pageController: _pageController,
+  notchBottomBarController: _controller,
   ...
 )
 ```
@@ -101,18 +101,36 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
      ...
 )
 ```
-##### Customized Blur Effect (iOS Tab View)
+##### Remove margins
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
-    ...
-    showBlurBottomBar: true,
-    blurOpacity: 0.2,
-    blurFilterX: 5.0,
-    blurFilterY: 10.0,
-    ...
+     ...
+     removeMargins: true,     
+     ...
 )
 ```
+
+##### Set bottom bar width
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+     ...
+     bottomBarWidth: 500,     
+     ...
+)
+```
+
+##### Add animation duration
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+     ...
+     durationInMilliSeconds: 300,     
+     ...
+)
+```
+
 ##### Show/hide item label and style
 
 ```dart
@@ -136,12 +154,31 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
      ...
 )
 ```
+##### Customized Blur Effect (iOS Tab View)
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+    ...
+    showBlurBottomBar: true,
+    blurOpacity: 0.2,
+    blurFilterX: 5.0,
+    blurFilterY: 10.0,
+    ...
+)
+```
+
+### Migrating to 1.0.0+
+
+Starting with version `1.0.0` of the package, `NotchBottomBarController` have been added for control the animation instead of `PageController`. The `pageController` field has been removed and `notchBottomBarController` is required now.
 
 ### AnimatedNotchBottomBar
-- `pageController` - the page controller which allows you to control the page animation duration and curve.
+- `notchBottomBarController` - the controller which allows you to control the page.
 - `bottomBarItems` - navigation items, required more than one item and less than six.
 - `onTap` - required to listen when an item is tapped it provides the selected item's index.
 - `color` - the bottom bar's background color.
+- `removeMargins` - To remove side and bottom margins by default it's false.
+- `bottomBarWidth` - To provide width for web and desktop app.
+- `durationInMilliSeconds` - To set duration time in MilliSeconds.
 - `showLabel`: To show or hide the label under bottom bar item.
 - `itemLabelStyle` - the bottom bar's item text style.
 - `showShadow` - if false the bottom bar's elevation will be removed.

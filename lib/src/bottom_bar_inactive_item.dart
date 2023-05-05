@@ -7,11 +7,7 @@ import 'constants/constants.dart';
 /// Class to generate the inactive icon on bottom bar
 class BottomBarInActiveItem extends StatelessWidget {
   const BottomBarInActiveItem(this.index,
-      {required this.itemWidget,
-      required this.onTap,
-      required this.showLabel,
-      this.label,
-      this.labelStyle});
+      {required this.itemWidget, required this.onTap, required this.showLabel, this.label, this.labelStyle});
 
   /// item index
   final int index;
@@ -33,27 +29,30 @@ class BottomBarInActiveItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.fromSize(
-      size: const Size(kCircleRadius * 2, kCircleRadius * 2),
-      child: GestureDetector(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: kIconSize, width: kIconSize, child: itemWidget),
-            if (label != null && showLabel) ...[
-              const SizedBox(height: 5.0),
-              Text(
-                label!,
-                style: labelStyle ??
-                    TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 12.0,
-                    ),
-              ),
+    return GestureDetector(
+      onTap: () => onTap(index),
+      child: Container(
+        color: Colors.transparent,
+        child: SizedBox.fromSize(
+          size: const Size(kCircleRadius * 2, kCircleRadius * 2),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: kIconSize, width: kIconSize, child: itemWidget),
+              if (label != null && showLabel) ...[
+                const SizedBox(height: 5.0),
+                Text(
+                  label!,
+                  style: labelStyle ??
+                      TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 12.0,
+                      ),
+                ),
+              ],
             ],
-          ],
+          ),
         ),
-        onTap: () => onTap(index),
       ),
     );
   }

@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 
 class BottomBarPainter extends CustomPainter {
-  BottomBarPainter(
-      {required this.position,
-      required this.color,
-      required this.showShadow,
-      required this.notchColor})
+  BottomBarPainter({required this.position, required this.color, required this.showShadow, required this.notchColor})
       : _paint = Paint()
           ..color = color
           ..isAntiAlias = true,
@@ -52,10 +48,10 @@ class BottomBarPainter extends CustomPainter {
 
   /// draw bottom bar
   void _drawBar(Canvas canvas, Size size) {
-    const left = kMargin;
-    final right = size.width - kMargin;
-    const top = kMargin;
-    const bottom = top + kHeight;
+    final double left = kMargin;
+    final double right = size.width - kMargin;
+    final double top = kMargin;
+    final double bottom = top + kHeight;
 
     final path = Path()
       ..moveTo(left + kTopRadius, top)
