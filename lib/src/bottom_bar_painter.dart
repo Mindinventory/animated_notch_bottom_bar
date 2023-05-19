@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 
 class BottomBarPainter extends CustomPainter {
-  BottomBarPainter({required this.position, required this.color, required this.showShadow, required this.notchColor})
+  BottomBarPainter(
+      {required this.position,
+      required this.color,
+      required this.showShadow,
+      required this.notchColor})
       : _paint = Paint()
           ..color = color
           ..isAntiAlias = true,

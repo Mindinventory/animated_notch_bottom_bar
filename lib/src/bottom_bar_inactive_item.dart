@@ -5,7 +5,11 @@ import 'constants/constants.dart';
 /// Class to generate the inactive icon on bottom bar
 class BottomBarInActiveItem extends StatelessWidget {
   const BottomBarInActiveItem(this.index,
-      {required this.itemWidget, required this.onTap, required this.showLabel, this.label, this.labelStyle});
+      {required this.itemWidget,
+      required this.onTap,
+      required this.showLabel,
+      this.label,
+      this.labelStyle});
 
   /// item index
   final int index;

@@ -2,7 +2,7 @@
 
 * Dependency of `PageController` has been removed.
 * Now manage animation through by adding `NotchBottomBarController`.
-* Fixed #5, #6 ,#8.
+* Fixed [#5](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/5), [#6](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/6) ,[#8](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/8).
 * Added support for remove margins by setting `removeMargins` to true.
 * Added `durationInMilliSeconds` to provide duration of notch animation.
 * Added `bottomBarWidth` to provide width to bottom nav bar for web and desktop apps.

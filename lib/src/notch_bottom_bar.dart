@@ -138,6 +138,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                   scrollPosition = Tween<double>(
                           begin: widget.notchBottomBarController.oldIndex!.toDouble(),
                           end: widget.notchBottomBarController.index.toDouble())
+                      // ignore: invalid_use_of_protected_member
                       .lerp(_animationController.value);
                   currentIndex = widget.notchBottomBarController.index;
                 } else {

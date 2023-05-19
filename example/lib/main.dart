@@ -59,7 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
@@ -149,7 +150,8 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.yellow, child: const Center(child: Text('Page 1')));
+    return Container(
+        color: Colors.yellow, child: const Center(child: Text('Page 1')));
   }
 }
 
@@ -158,7 +160,8 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.green, child: const Center(child: Text('Page 2')));
+    return Container(
+        color: Colors.green, child: const Center(child: Text('Page 2')));
   }
 }
 
@@ -167,7 +170,8 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.red, child: const Center(child: Text('Page 3')));
+    return Container(
+        color: Colors.red, child: const Center(child: Text('Page 3')));
   }
 }
 
@@ -176,7 +180,8 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.blue, child: const Center(child: Text('Page 4')));
+    return Container(
+        color: Colors.blue, child: const Center(child: Text('Page 4')));
   }
 }
 
@@ -185,6 +190,8 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.lightGreenAccent, child: const Center(child: Text('Page 5')));
+    return Container(
+        color: Colors.lightGreenAccent,
+        child: const Center(child: Text('Page 5')));
   }
 }
