@@ -1,5 +1,3 @@
-library rolling_bottom_bar;
-
 import 'package:flutter/material.dart';
 
 import 'constants/constants.dart';
