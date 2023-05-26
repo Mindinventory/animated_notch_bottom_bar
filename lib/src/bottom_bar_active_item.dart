@@ -25,7 +25,7 @@ class BottomBarActiveItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icon = itemWidget;
-    return InkWell(
+    return GestureDetector(
       child: SizedBox.fromSize(
         size: const Size(kIconSize, kIconSize),
         child: Opacity(

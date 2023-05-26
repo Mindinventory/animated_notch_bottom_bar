@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,9 +31,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Controller to handle PageView and also handles initial page
-  final _pageController = PageController(initialPage: 2);
+  final _pageController = PageController(initialPage: 0);
+
+  /// Controller to handle bottom nav bar and also handles initial page
+  final _controller = NotchBottomBarController(index: 0);
 
   int maxCount = 5;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   /// widget list
   final List<Widget> bottomBarPages = [
@@ -41,17 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
     const Page4(),
     const Page5(),
   ];
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +65,16 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
-              pageController: _pageController,
+              /// Provide NotchBottomBarController
+              notchBottomBarController: _controller,
               color: Colors.white,
               showLabel: false,
               notchColor: Colors.black87,
+
+              /// restart app if you change removeMargins
+              removeMargins: false,
+              bottomBarWidth: 500,
+              durationInMilliSeconds: 300,
               bottomBarItems: [
                 const BottomBarItem(
                   inActiveItem: Icon(
@@ -129,12 +135,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
               onTap: (index) {
-                /// control your animation using page controller
-                _pageController.animateToPage(
-                  index,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeIn,
-                );
+                /// perform action on tab change and to update pages you can update pages without pages
+                log('current selected index $index');
+                _pageController.jumpToPage(index);
               },
             )
           : null,
@@ -189,6 +192,6 @@ class Page5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.lightGreenAccent,
-        child: const Center(child: Text('Page 4')));
+        child: const Center(child: Text('Page 5')));
   }
 }
