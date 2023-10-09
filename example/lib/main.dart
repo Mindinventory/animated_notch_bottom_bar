@@ -72,16 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
               /// restart app if you change removeMargins
               removeMargins: false,
-
-              /// set any gradient to notch by default it will be null
-              notchGradient: const LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Colors.red,
-                  Colors.green,
-                ],
-              ),
               bottomBarWidth: 500,
               showShadow: false,
               durationInMilliSeconds: 300,
