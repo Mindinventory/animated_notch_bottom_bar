@@ -56,6 +56,23 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   /// Hide side and bottom margins of bottom navigation bar
   final bool removeMargins;
 
+  /// bottom bar height can be modify
+  final double bottomBarHeight;
+
+  /// elevation
+  final double elevation;
+
+  /// set bottom radius
+
+  final bool showBottomRadius;
+
+  /// set top radius
+
+  final bool showTopRadius;
+
+  /// add any gradient color to the notch
+  final Gradient? notchGradient;
+
   const AnimatedNotchBottomBar({
     Key? key,
     required this.notchBottomBarController,
@@ -73,6 +90,11 @@ class AnimatedNotchBottomBar extends StatefulWidget {
     this.durationInMilliSeconds = 300,
     this.bottomBarWidth = 500,
     this.removeMargins = false,
+    this.bottomBarHeight = 62.0,
+    this.elevation = 5.0,
+    this.showBottomRadius = true,
+    this.showTopRadius = true,
+    this.notchGradient = null,
   }) : super(key: key);
 
   @override
@@ -96,7 +118,16 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: widget.durationInMilliSeconds));
-    kHeight = widget.removeMargins ? 72.0 : 62.0;
+
+    kHeight = (widget.bottomBarHeight >= kBottomNavigationBarHeight)
+        ? widget.removeMargins
+            ? widget.bottomBarHeight + 10.0
+            : widget.bottomBarHeight
+        : widget.removeMargins
+            ? kHeight + 10
+            : kHeight;
+    kTopRadius = widget.showTopRadius ? kTopRadius : 0;
+    kBottomRadius = widget.showBottomRadius ? kBottomRadius : 0;
     kMargin = widget.removeMargins ? 0 : 14.0;
     widget.notchBottomBarController.addListener(() {
       _animationController.reset();
@@ -124,7 +155,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
     final double height = kHeight + kMargin * 2;
 
     return widget.bottomBarItems.length > maxCount
-        ? Container()
+        ? SizedBox.shrink()
         : Align(
             alignment: Alignment.bottomCenter,
             child: AnimatedBuilder(
@@ -148,7 +179,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
 
                 return ClipRRect(
                   child: Padding(
-                    padding: EdgeInsets.only(top: widget.removeMargins ? 22.0 : 8),
+                    padding: EdgeInsets.only(top: widget.removeMargins ? 22.0 : 8.0),
                     child: Stack(
                       clipBehavior: Clip.none,
                       children: <Widget>[
@@ -165,7 +196,9 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                                   position: _itemPosByScrollPosition(scrollPosition),
                                   color: widget.color,
                                   showShadow: widget.showShadow,
-                                  notchColor: widget.notchColor),
+                                  notchColor: widget.notchColor,
+                                  gradient: widget.notchGradient,
+                                  elevation: widget.elevation),
                             ),
                           ),
                         ),
