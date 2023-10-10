@@ -111,12 +111,13 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 )
 ```
 
-##### Set bottom bar width
+##### Set bottom bar width and height
 
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
      ...
-     bottomBarWidth: 500,     
+     bottomBarWidth: 500.0,     
+     bottomBarHeight: 62.0,     
      ...
 )
 ```
@@ -154,6 +155,45 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
      ...
 )
 ```
+
+##### Set Notch's gradient
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+     ...
+     notchGradient: const LinearGradient(
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+        colors: [
+          Colors.red,
+          Colors.green,
+        ],
+     ),     
+     ...
+)
+```
+
+##### Hide top and bottom corner radius
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+     ...
+     showBottomRadius = false,
+     showTopRadius = false,
+     ...
+)
+```
+
+##### Customize elevation
+
+```dart
+bottomNavigationBar:  AnimatedNotchBottomBar(
+     ...
+     elevation = 2.0,
+     ...
+)
+```
+
 ##### Customized Blur Effect (iOS Tab View)
 
 ```dart
@@ -172,21 +212,26 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 Starting with version `1.0.0` of the package, `NotchBottomBarController` have been added for control the animation instead of `PageController`. The `pageController` field has been removed and `notchBottomBarController` is required now.
 
 ### AnimatedNotchBottomBar
-- `notchBottomBarController` - the controller which allows you to control the page.
-- `bottomBarItems` - navigation items, required more than one item and less than six.
-- `onTap` - required to listen when an item is tapped it provides the selected item's index.
-- `color` - the bottom bar's background color.
+- `notchBottomBarController` - The controller which allows you to control the page.
+- `bottomBarItems` - Navigation items, required more than one item and less than six.
+- `onTap` - Required to listen when an item is tapped it provides the selected item's index.
+- `color` - The bottom bar's background color.
 - `removeMargins` - To remove side and bottom margins by default it's false.
 - `bottomBarWidth` - To provide width for web and desktop app.
 - `durationInMilliSeconds` - To set duration time in MilliSeconds.
 - `showLabel`: To show or hide the label under bottom bar item.
-- `itemLabelStyle` - the bottom bar's item text style.
-- `showShadow` - if false the bottom bar's elevation will be removed.
-- `showBlurBottomBar` - if true the bottom bar will look blur.
-- `blurOpacity` - to set opacity of blur effect.
+- `itemLabelStyle` - The bottom bar's item text style.
+- `showShadow` - If false the bottom bar's elevation will be removed.
+- `showBlurBottomBar` - If true the bottom bar will look blur.
+- `blurOpacity` - To set opacity of blur effect.
 - `blurFilterX` - Creates an image filter that applies a Gaussian blur at x axis.
 - `blurFilterY` - Creates an image filter that applies a Gaussian blur at y axis.
 - `notchColor` - Customizable notch's color.
+- `notchGradient` - Add Gradient to notch.
+- `showTopRadius` - If set false the top corner radius will be removed.
+- `showBottomRadius` - If set false the top corner radius will be removed.
+- `elevation` - Set elevation of bottom bar.
+- `bottomBarHeight` - To set height of bottom bar.
 
 ### BottomBarItems
 - `title` - the bottom bar item label

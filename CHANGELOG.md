@@ -1,3 +1,11 @@
+## 1.1.0
+
+* Added `bottomBarHeight` to set height to bottom nav bar.
+* Added `notchGradient` to set gradients to notch.
+* Added support for remove corner radius by setting `showTopRadius` & `showBottomRadius` to false.
+* Added `elevation` to provide elevation to bottom nav bar.
+* Readme updates.
+
 ## 1.0.0
 
 * Dependency of `PageController` has been removed.
