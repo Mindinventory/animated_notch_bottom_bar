@@ -1,3 +1,7 @@
+## 1.0.1
+* add functionality to change icon size and bottom corner radius  
+* user can give gradiant color to the notch button 
+
 ## 1.0.0
 
 * Dependency of `PageController` has been removed.
