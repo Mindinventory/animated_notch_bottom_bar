@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -59,8 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
+        children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
@@ -69,6 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
               notchBottomBarController: _controller,
               color: Colors.white,
               showLabel: false,
+              shadowElevation: 5,
+              kBottomRadius: 28.0,
+              // notchShader: const SweepGradient(
+              //   startAngle: 0,
+              //   endAngle: pi / 2,
+              //   colors: [Colors.red, Colors.green, Colors.orange],
+              //   tileMode: TileMode.mirror,
+              // ).createShader(Rect.fromCircle(center: Offset.zero, radius: 8.0)),
               notchColor: Colors.black87,
 
               /// restart app if you change removeMargins
@@ -136,9 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               onTap: (index) {
                 /// perform action on tab change and to update pages you can update pages without pages
-                log('current selected index $index');
+                // log('current selected index $index');
                 _pageController.jumpToPage(index);
               },
+              kIconSize: 24.0,
             )
           : null,
     );
@@ -150,8 +156,7 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.yellow, child: const Center(child: Text('Page 1')));
+    return Container(color: Colors.yellow, child: const Center(child: Text('Page 1')));
   }
 }
 
@@ -160,8 +165,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.green, child: const Center(child: Text('Page 2')));
+    return Container(color: Colors.green, child: const Center(child: Text('Page 2')));
   }
 }
 
@@ -170,8 +174,7 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.red, child: const Center(child: Text('Page 3')));
+    return Container(color: Colors.red, child: const Center(child: Text('Page 3')));
   }
 }
 
@@ -180,8 +183,7 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.blue, child: const Center(child: Text('Page 4')));
+    return Container(color: Colors.blue, child: const Center(child: Text('Page 4')));
   }
 }
 
@@ -190,8 +192,6 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.lightGreenAccent,
-        child: const Center(child: Text('Page 5')));
+    return Container(color: Colors.lightGreenAccent, child: const Center(child: Text('Page 5')));
   }
 }

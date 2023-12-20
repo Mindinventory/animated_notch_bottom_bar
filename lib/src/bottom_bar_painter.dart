@@ -7,7 +7,10 @@ class BottomBarPainter extends CustomPainter {
       {required this.position,
       required this.color,
       required this.showShadow,
-      required this.notchColor})
+      required this.notchColor,
+      this.shader,
+      required this.kBottomRadius,
+      this.shadowElevation})
       : _paint = Paint()
           ..color = color
           ..isAntiAlias = true,
@@ -22,11 +25,21 @@ class BottomBarPainter extends CustomPainter {
   /// Color for the bottom bar
   final Color color;
 
+  //final shadow show
+  final double? shadowElevation;
+
   /// Paint value to custom painter
   final Paint _paint;
 
+  // shader
+
+  final Shader? shader;
+
   /// Shadow Color
   final Color _shadowColor;
+
+  // bottom radius
+  double kBottomRadius;
 
   /// Boolean to show shadow
   final bool showShadow;
@@ -40,7 +53,7 @@ class BottomBarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     _drawBar(canvas, size);
-    _drawFloatingCircle(canvas);
+    _drawFloatingCircle(canvas, shader);
   }
 
   @override
@@ -78,13 +91,13 @@ class BottomBarPainter extends CustomPainter {
       )
       ..lineTo(right, bottom - kBottomRadius)
       ..relativeArcToPoint(
-        const Offset(-kBottomRadius, kBottomRadius),
-        radius: const Radius.circular(kBottomRadius),
+        Offset(-kBottomRadius, kBottomRadius),
+        radius: Radius.circular(kBottomRadius),
       )
       ..lineTo(left + kBottomRadius, bottom)
       ..relativeArcToPoint(
-        const Offset(-kBottomRadius, -kBottomRadius),
-        radius: const Radius.circular(kBottomRadius),
+        Offset(-kBottomRadius, -kBottomRadius),
+        radius: Radius.circular(kBottomRadius),
       )
       ..lineTo(left, top + kTopRadius)
       ..relativeArcToPoint(
@@ -92,13 +105,13 @@ class BottomBarPainter extends CustomPainter {
         radius: const Radius.circular(kTopRadius),
       );
     if (this.showShadow) {
-      canvas..drawShadow(path, _shadowColor, 5.0, true);
+      canvas..drawShadow(path, _shadowColor, shadowElevation ?? 5, true);
     }
     canvas.drawPath(path, _paint);
   }
 
   /// Function used to draw the circular indicator
-  void _drawFloatingCircle(Canvas canvas) {
+  void _drawFloatingCircle(Canvas canvas, Shader? shader) {
     final path = Path()
       ..addArc(
         Rect.fromCircle(
@@ -112,8 +125,8 @@ class BottomBarPainter extends CustomPainter {
         kPi * 2,
       );
     if (this.showShadow) {
-      canvas..drawShadow(path, _shadowColor, 5.0, true);
+      canvas..drawShadow(path, _shadowColor, shadowElevation ?? 5.0, true);
     }
-    canvas.drawPath(path, _notchPaint);
+    shader != null ? canvas.drawPath(path, _notchPaint..shader = shader) : canvas.drawPath(path, _notchPaint);
   }
 }
