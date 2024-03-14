@@ -1,10 +1,16 @@
-## 1.1.0
+## 1.0.2
+
+* Fixed [#21](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/21) 
+
+## 1.0.1
 
 * Added `bottomBarHeight` to set height to bottom nav bar.
 * Added `notchGradient` to set gradients to notch.
 * Added support for remove corner radius by setting `showTopRadius` & `showBottomRadius` to false.
 * Added `elevation` to provide elevation to bottom nav bar.
 * Readme updates.
+* add functionality to change icon size and bottom corner radius
+* user can give gradiant color to the notch button
 
 ## 1.0.0
 

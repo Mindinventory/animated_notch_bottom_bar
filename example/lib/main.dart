@@ -68,6 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
               notchBottomBarController: _controller,
               color: Colors.white,
               showLabel: false,
+              shadowElevation: 5,
+              kBottomRadius: 28.0,
+              // notchShader: const SweepGradient(
+              //   startAngle: 0,
+              //   endAngle: pi / 2,
+              //   colors: [Colors.red, Colors.green, Colors.orange],
+              //   tileMode: TileMode.mirror,
+              // ).createShader(Rect.fromCircle(center: Offset.zero, radius: 8.0)),
               notchColor: Colors.black87,
 
               /// restart app if you change removeMargins
@@ -140,6 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 log('current selected index $index');
                 _pageController.jumpToPage(index);
               },
+              kIconSize: 24.0,
             )
           : null,
     );
