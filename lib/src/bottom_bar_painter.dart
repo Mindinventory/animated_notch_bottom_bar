@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 
 class BottomBarPainter extends CustomPainter {
-  BottomBarPainter(
-      {required this.position,
-      required this.color,
-      required this.showShadow,
-      required this.notchColor,
-      required this.elevation,
-        required this.kBottomRadius,
-        this.shadowElevation,
-        this.shader,
-        this.gradient,})
-      : _paint = Paint()
+  BottomBarPainter({
+    required this.position,
+    required this.color,
+    required this.showShadow,
+    required this.notchColor,
+    required this.elevation,
+    required this.kBottomRadius,
+    this.shadowElevation,
+    this.shader,
+    this.gradient,
+  })  : _paint = Paint()
           ..color = color
           ..isAntiAlias = true,
         _shadowColor = Colors.grey.shade600,
@@ -87,8 +87,8 @@ class BottomBarPainter extends CustomPainter {
       ..moveTo(left + kTopRadius, top)
       ..lineTo(position - kTopRadius, top)
       ..relativeArcToPoint(
-         Offset(kTopRadius, kTopRadius),
-        radius:  Radius.circular(kTopRadius),
+        Offset(kTopRadius, kTopRadius),
+        radius: Radius.circular(kTopRadius),
       )
       ..relativeArcToPoint(
         const Offset((kCircleRadius + kCircleMargin) * 2, 0.0),
@@ -97,12 +97,12 @@ class BottomBarPainter extends CustomPainter {
       )
       ..relativeArcToPoint(
         Offset(kTopRadius, -kTopRadius),
-        radius:  Radius.circular(kTopRadius),
+        radius: Radius.circular(kTopRadius),
       )
       ..lineTo(right - kTopRadius, top)
       ..relativeArcToPoint(
-         Offset(kTopRadius, kTopRadius),
-        radius:  Radius.circular(kTopRadius),
+        Offset(kTopRadius, kTopRadius),
+        radius: Radius.circular(kTopRadius),
       )
       ..lineTo(right, bottom - kBottomRadius)
       ..relativeArcToPoint(
@@ -142,6 +142,8 @@ class BottomBarPainter extends CustomPainter {
     if (this.showShadow) {
       canvas..drawShadow(path, _shadowColor, shadowElevation ?? 5.0, true);
     }
-    shader != null ? canvas.drawPath(path, _notchPaint..shader = shader) : canvas.drawPath(path, _notchPaint);
+    shader != null
+        ? canvas.drawPath(path, _notchPaint..shader = shader)
+        : canvas.drawPath(path, _notchPaint);
   }
 }

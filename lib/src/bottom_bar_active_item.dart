@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 
 class BottomBarActiveItem extends StatelessWidget {
-  const BottomBarActiveItem(this.index, {required this.itemWidget, required this.onTap, required this.scrollPosition, required this.kIconSize});
+  const BottomBarActiveItem(
+    this.index, {
+    required this.itemWidget,
+    required this.onTap,
+    required this.scrollPosition,
+    required this.kIconSize,
+  });
 
   /// item index
   final int index;
@@ -25,7 +31,8 @@ class BottomBarActiveItem extends StatelessWidget {
     return GestureDetector(
       child: SizedBox.fromSize(
         size: Size(kIconSize, kIconSize),
-        child: Opacity(opacity: kPi * 2 * (scrollPosition % 1) == 0 ? 1 : 0, child: icon),
+        child: Opacity(
+            opacity: kPi * 2 * (scrollPosition % 1) == 0 ? 1 : 0, child: icon),
       ),
       onTap: () => onTap(index),
     );

@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +9,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,7 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
@@ -84,8 +85,8 @@ class _MyHomePageState extends State<MyHomePage> {
               showShadow: false,
               durationInMilliSeconds: 300,
               elevation: 1,
-              bottomBarItems: [
-                const BottomBarItem(
+              bottomBarItems: const [
+                BottomBarItem(
                   inActiveItem: Icon(
                     Icons.home_filled,
                     color: Colors.blueGrey,
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 1',
                 ),
-                const BottomBarItem(
+                BottomBarItem(
                   inActiveItem: Icon(
                     Icons.star,
                     color: Colors.blueGrey,
@@ -107,20 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 2',
                 ),
-
-                ///svg example
                 BottomBarItem(
-                  inActiveItem: SvgPicture.asset(
-                    'assets/search_icon.svg',
-                    color: Colors.blueGrey,
-                  ),
-                  activeItem: SvgPicture.asset(
-                    'assets/search_icon.svg',
-                    color: Colors.white,
-                  ),
-                  itemLabel: 'Page 3',
-                ),
-                const BottomBarItem(
                   inActiveItem: Icon(
                     Icons.settings,
                     color: Colors.blueGrey,
@@ -131,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 4',
                 ),
-                const BottomBarItem(
+                BottomBarItem(
                   inActiveItem: Icon(
                     Icons.person,
                     color: Colors.blueGrey,
@@ -160,7 +148,8 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.yellow, child: const Center(child: Text('Page 1')));
+    return Container(
+        color: Colors.yellow, child: const Center(child: Text('Page 1')));
   }
 }
 
@@ -169,7 +158,8 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.green, child: const Center(child: Text('Page 2')));
+    return Container(
+        color: Colors.green, child: const Center(child: Text('Page 2')));
   }
 }
 
@@ -178,7 +168,8 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.red, child: const Center(child: Text('Page 3')));
+    return Container(
+        color: Colors.red, child: const Center(child: Text('Page 3')));
   }
 }
 
@@ -187,7 +178,8 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.blue, child: const Center(child: Text('Page 4')));
+    return Container(
+        color: Colors.blue, child: const Center(child: Text('Page 4')));
   }
 }
 
@@ -196,6 +188,8 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.lightGreenAccent, child: const Center(child: Text('Page 5')));
+    return Container(
+        color: Colors.lightGreenAccent,
+        child: const Center(child: Text('Page 5')));
   }
 }
