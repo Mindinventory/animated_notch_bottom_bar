@@ -13,8 +13,7 @@ class BottomBarInActiveItem extends StatelessWidget {
     this.label,
     this.labelStyle,
     this.labelWidget,
-  }) : assert(labelWidget == null && label != null ||
-            labelWidget != null && label == null) {}
+  });
 
   /// item index
   final int index;

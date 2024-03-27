@@ -259,6 +259,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar>
                             child: BottomBarInActiveItem(
                               i,
                               itemWidget: widget.bottomBarItems[i].inActiveItem,
+                              labelWidget:
+                                  widget.bottomBarItems[i].itemLabelWidget,
                               label: widget.bottomBarItems[i].itemLabel,
                               onTap: (selectedIndex) {
                                 widget.notchBottomBarController
