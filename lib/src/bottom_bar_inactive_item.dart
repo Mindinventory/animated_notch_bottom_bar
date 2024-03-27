@@ -12,13 +12,18 @@ class BottomBarInActiveItem extends StatelessWidget {
     required this.showLabel,
     this.label,
     this.labelStyle,
-  });
+    this.labelWidget,
+  }) : assert(labelWidget == null && label != null ||
+            labelWidget != null && label == null) {}
 
   /// item index
   final int index;
 
   /// item widget
   final Widget itemWidget;
+
+  /// String to indicate the label item
+  final Widget? labelWidget;
 
   /// String to indicate the label item
   final String? label;
@@ -49,14 +54,15 @@ class BottomBarInActiveItem extends StatelessWidget {
               SizedBox(height: kIconSize, width: kIconSize, child: itemWidget),
               if (label != null && showLabel) ...[
                 const SizedBox(height: 5.0),
-                Text(
-                  label!,
-                  style: labelStyle ??
-                      TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 12.0,
-                      ),
-                ),
+                labelWidget ??
+                    Text(
+                      label!,
+                      style: labelStyle ??
+                          TextStyle(
+                            color: Colors.grey[700],
+                            fontSize: 12.0,
+                          ),
+                    ),
               ],
             ],
           ),
