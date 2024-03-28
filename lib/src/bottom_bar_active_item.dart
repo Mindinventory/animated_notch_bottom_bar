@@ -29,7 +29,8 @@ class BottomBarActiveItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final icon = itemWidget;
     return GestureDetector(
-      child: Center(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8.0),
         child: SizedBox.fromSize(
           size: Size(kIconSize, kIconSize),
           child: Opacity(
