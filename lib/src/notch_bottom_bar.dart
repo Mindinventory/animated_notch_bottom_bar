@@ -299,8 +299,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar>
 
   double _itemPosByScrollPosition(double scrollPosition) {
     return _firstItemPosition(widget.removeMargins ? 0.05 : 0.1) +
-        _itemDistance() * scrollPosition +
-        10;
+        _itemDistance() * scrollPosition;
   }
 
   double _itemPosByIndex(int index) {
