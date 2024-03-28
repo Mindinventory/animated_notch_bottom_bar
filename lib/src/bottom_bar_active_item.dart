@@ -32,7 +32,8 @@ class BottomBarActiveItem extends StatelessWidget {
       child: SizedBox.fromSize(
         size: Size(kIconSize, kIconSize),
         child: Opacity(
-            opacity: kPi * 2 * (scrollPosition % 1) == 0 ? 1 : 0, child: icon),
+            opacity: kPi * 2 * (scrollPosition % 1) == 0 ? 1 : 0,
+            child: Center(child: icon)),
       ),
       onTap: () => onTap(index),
     );
