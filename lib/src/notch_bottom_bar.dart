@@ -243,7 +243,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar>
                                 : kTopMargin,
                             left: kCircleRadius -
                                 kCircleMargin / 2 +
-                                _itemPosByScrollPosition(scrollPosition),
+                                _itemPosByScrollPosition(scrollPosition) +
+                                2,
                             child: BottomBarActiveItem(
                               i,
                               itemWidget: widget.bottomBarItems[i].activeItem,
