@@ -12,6 +12,7 @@ class BottomBarInActiveItem extends StatelessWidget {
     required this.showLabel,
     this.label,
     this.labelStyle,
+    this.labelWidget,
   });
 
   /// item index
@@ -19,6 +20,9 @@ class BottomBarInActiveItem extends StatelessWidget {
 
   /// item widget
   final Widget itemWidget;
+
+  /// String to indicate the label item
+  final Widget? labelWidget;
 
   /// String to indicate the label item
   final String? label;
@@ -47,16 +51,17 @@ class BottomBarInActiveItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: kIconSize, width: kIconSize, child: itemWidget),
-              if (label != null && showLabel) ...[
+              if (labelWidget != null || (label != null && showLabel)) ...[
                 const SizedBox(height: 5.0),
-                Text(
-                  label!,
-                  style: labelStyle ??
-                      TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 12.0,
-                      ),
-                ),
+                labelWidget ??
+                    Text(
+                      label!,
+                      style: labelStyle ??
+                          TextStyle(
+                            color: Colors.grey[700],
+                            fontSize: 12.0,
+                          ),
+                    ),
               ],
             ],
           ),
