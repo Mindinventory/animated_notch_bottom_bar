@@ -30,10 +30,9 @@ class BottomBarActiveItem extends StatelessWidget {
     final icon = itemWidget;
     return GestureDetector(
       child: SizedBox.fromSize(
-        size: Size(kIconSize, kIconSize),
+        size: Size(kIconSize, kIconSize - 10),
         child: Opacity(
-            opacity: kPi * 2 * (scrollPosition % 1) == 0 ? 1 : 0,
-            child: Center(child: icon)),
+            opacity: kPi * 2 * (scrollPosition % 1) == 0 ? 1 : 0, child: icon),
       ),
       onTap: () => onTap(index),
     );
