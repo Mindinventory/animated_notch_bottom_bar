@@ -93,6 +93,12 @@ class AnimatedNotchBottomBar extends StatefulWidget {
   /// add any gradient color to the notch
   final Gradient? notchGradient;
 
+  /// set margin between notch and circle
+  final double circleMargin;
+
+  /// set top margin
+  final double topMargin;
+
   const AnimatedNotchBottomBar({
     Key? key,
     required this.notchBottomBarController,
@@ -123,6 +129,8 @@ class AnimatedNotchBottomBar extends StatefulWidget {
     this.textOverflow,
     this.textAlign,
     this.textDirection,
+    this.topMargin = 10.0,
+    this.circleMargin = 8.0,
   }) : super(key: key);
 
   @override
@@ -145,7 +153,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: widget.durationInMilliSeconds));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: widget.durationInMilliSeconds));
 
     kHeight = (widget.bottomBarHeight >= kBottomNavigationBarHeight)
         ? widget.removeMargins
@@ -192,10 +201,11 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
               int? currentIndex = widget.notchBottomBarController.index;
               if (widget.notchBottomBarController.oldIndex != null) {
                 _isInitial = false;
-                scrollPosition =
-                    Tween<double>(begin: widget.notchBottomBarController.oldIndex!.toDouble(), end: widget.notchBottomBarController.index.toDouble())
-                        // ignore: invalid_use_of_protected_member
-                        .lerp(_animationController.value);
+                scrollPosition = Tween<double>(
+                        begin: widget.notchBottomBarController.oldIndex!.toDouble(),
+                        end: widget.notchBottomBarController.index.toDouble())
+                    // ignore: invalid_use_of_protected_member
+                    .lerp(_animationController.value);
                 currentIndex = widget.notchBottomBarController.index;
               } else {
                 scrollPosition = widget.notchBottomBarController.index.toDouble();
@@ -233,8 +243,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                       for (var i = 0; i < widget.bottomBarItems.length; i++) ...[
                         if (i == currentIndex && (_animationController.value == 1.0 || _isInitial))
                           Positioned(
-                            top: widget.removeMargins ? -kCircleMargin / 2 : kTopMargin,
-                            left: kCircleRadius - kCircleMargin / 2 + _itemPosByScrollPosition(scrollPosition),
+                            top: widget.removeMargins ? -widget.circleMargin / 2 : widget.topMargin,
+                            left: kCircleRadius - widget.circleMargin / 2 + _itemPosByScrollPosition(scrollPosition),
                             child: BottomBarActiveItem(
                               i,
                               itemWidget: widget.bottomBarItems[i].activeItem,
@@ -246,7 +256,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                         if (i != currentIndex)
                           Positioned(
                             top: kMargin + (kHeight - kCircleRadius * 2) / 2,
-                            left: kCircleMargin + _itemPosByIndex(i),
+                            left: widget.circleMargin + _itemPosByIndex(i),
                             child: BottomBarInActiveItem(
                               i,
                               textOverflow: widget.textOverflow,
@@ -278,11 +288,12 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
   }
 
   double _lastItemPosition(double spaceParameter) {
-    return _screenWidth - (_screenWidth - kMargin * 2) * spaceParameter - (kCircleRadius + kCircleMargin) * 2;
+    return _screenWidth - (_screenWidth - kMargin * 2) * spaceParameter - (kCircleRadius + widget.circleMargin) * 2;
   }
 
   double _itemDistance() {
-    return (_lastItemPosition(widget.removeMargins ? 0.05 : 0.1) - _firstItemPosition(widget.removeMargins ? 0.05 : 0.1)) /
+    return (_lastItemPosition(widget.removeMargins ? 0.05 : 0.1) -
+            _firstItemPosition(widget.removeMargins ? 0.05 : 0.1)) /
         (widget.bottomBarItems.length - 1);
   }
 

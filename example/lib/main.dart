@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -42,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void dispose() {
     _pageController.dispose();
+
     super.dispose();
   }
 
@@ -74,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
               maxLine: 1,
               shadowElevation: 5,
               kBottomRadius: 28.0,
+
               // notchShader: const SweepGradient(
               //   startAngle: 0,
               //   endAngle: pi / 2,
@@ -133,7 +134,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
               onTap: (index) {
-                /// perform action on tab change and to update pages you can update pages without pages
                 log('current selected index $index');
                 _pageController.jumpToPage(index);
               },
