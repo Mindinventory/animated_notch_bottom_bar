@@ -1,3 +1,10 @@
+## 1.0.3
+* Fixed [#25](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/25)
+* Fixed [#26](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/26)
+* Fixed [#27](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/27)
+* Added `topMargin` to set margin from top.
+* Added `circleMargin` to set margin of circle.
+
 ## 1.0.2
 
 * Fixed [#21](https://github.com/Mindinventory/animated_notch_bottom_bar/issues/21) 

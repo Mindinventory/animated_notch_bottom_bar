@@ -34,33 +34,34 @@ class _MyHomePageState extends State<MyHomePage> {
   final _pageController = PageController(initialPage: 0);
 
   /// Controller to handle bottom nav bar and also handles initial page
-  final _controller = NotchBottomBarController(index: 0);
+  final NotchBottomBarController _controller = NotchBottomBarController(index: 0);
 
   int maxCount = 5;
 
   @override
   void dispose() {
     _pageController.dispose();
+
     super.dispose();
   }
 
-  /// widget list
-  final List<Widget> bottomBarPages = [
-    const Page1(),
-    const Page2(),
-    const Page3(),
-    const Page4(),
-    const Page5(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    /// widget list
+    final List<Widget> bottomBarPages = [
+      Page1(
+        controller: (_controller),
+      ),
+      const Page2(),
+      const Page3(),
+      const Page4(),
+      const Page5(),
+    ];
     return Scaffold(
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
+        children: List.generate(bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
@@ -68,9 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
               /// Provide NotchBottomBarController
               notchBottomBarController: _controller,
               color: Colors.white,
-              showLabel: false,
+              showLabel: true,
+              textOverflow: TextOverflow.visible,
+              maxLine: 1,
               shadowElevation: 5,
               kBottomRadius: 28.0,
+
               // notchShader: const SweepGradient(
               //   startAngle: 0,
               //   endAngle: pi / 2,
@@ -84,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               bottomBarWidth: 500,
               showShadow: false,
               durationInMilliSeconds: 300,
+
               elevation: 1,
               bottomBarItems: const [
                 BottomBarItem(
@@ -98,10 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemLabel: 'Page 1',
                 ),
                 BottomBarItem(
-                  inActiveItem: Icon(
-                    Icons.star,
-                    color: Colors.blueGrey,
-                  ),
+                  inActiveItem: Icon(Icons.star, color: Colors.blueGrey),
                   activeItem: Icon(
                     Icons.star,
                     color: Colors.blueAccent,
@@ -117,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Icons.settings,
                     color: Colors.pink,
                   ),
-                  itemLabel: 'Page 4',
+                  itemLabel: 'Page 3',
                 ),
                 BottomBarItem(
                   inActiveItem: Icon(
@@ -128,11 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     Icons.person,
                     color: Colors.yellow,
                   ),
-                  itemLabel: 'Page 5',
+                  itemLabel: 'Page 4',
                 ),
               ],
               onTap: (index) {
-                /// perform action on tab change and to update pages you can update pages without pages
                 log('current selected index $index');
                 _pageController.jumpToPage(index);
               },
@@ -143,13 +144,27 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+/// add controller to check weather index through change or not. in page 1
 class Page1 extends StatelessWidget {
-  const Page1({Key? key}) : super(key: key);
+  final NotchBottomBarController? controller;
+
+  const Page1({Key? key, this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.yellow, child: const Center(child: Text('Page 1')));
+      color: Colors.yellow,
+      child: Center(
+        /// adding GestureDetector
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            controller?.jumpTo(2);
+          },
+          child: const Text('Page 1'),
+        ),
+      ),
+    );
   }
 }
 
@@ -158,8 +173,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.green, child: const Center(child: Text('Page 2')));
+    return Container(color: Colors.green, child: const Center(child: Text('Page 2')));
   }
 }
 
@@ -168,8 +182,7 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.red, child: const Center(child: Text('Page 3')));
+    return Container(color: Colors.red, child: const Center(child: Text('Page 3')));
   }
 }
 
@@ -178,8 +191,7 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.blue, child: const Center(child: Text('Page 4')));
+    return Container(color: Colors.blue, child: const Center(child: Text('Page 4')));
   }
 }
 
@@ -188,8 +200,6 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.lightGreenAccent,
-        child: const Center(child: Text('Page 5')));
+    return Container(color: Colors.lightGreenAccent, child: const Center(child: Text('Page 5')));
   }
 }

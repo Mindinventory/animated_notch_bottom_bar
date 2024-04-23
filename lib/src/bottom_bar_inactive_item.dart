@@ -13,6 +13,10 @@ class BottomBarInActiveItem extends StatelessWidget {
     this.label,
     this.labelStyle,
     this.labelWidget,
+    this.maxLine,
+    this.textOverflow,
+    this.textAlign,
+    this.textDirection,
   });
 
   /// item index
@@ -29,6 +33,18 @@ class BottomBarInActiveItem extends StatelessWidget {
 
   /// Boolean to show the item label
   final bool showLabel;
+
+  /// set the maxLine of item label
+  final int? maxLine;
+
+  /// to handle the overflow of the item label
+  final TextOverflow? textOverflow;
+
+  /// textAlign to align the label text
+  final TextAlign? textAlign;
+
+  /// set the textDirection of item label
+  final TextDirection? textDirection;
 
   ///icon size
   final double kIconSize;
@@ -62,6 +78,18 @@ class BottomBarInActiveItem extends StatelessWidget {
                             fontSize: 12.0,
                           ),
                     ),
+                Text(
+                  label!,
+                  maxLines: maxLine ?? 1,
+                  overflow: textOverflow ?? TextOverflow.ellipsis,
+                  textAlign: textAlign,
+                  textDirection: textDirection,
+                  style: labelStyle ??
+                      TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 12.0,
+                      ),
+                ),
               ],
             ],
           ),
