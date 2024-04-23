@@ -243,8 +243,13 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                       for (var i = 0; i < widget.bottomBarItems.length; i++) ...[
                         if (i == currentIndex && (_animationController.value == 1.0 || _isInitial))
                           Positioned(
-                            top: widget.removeMargins ? -widget.circleMargin / 2 : widget.topMargin,
-                            left: kCircleRadius - widget.circleMargin / 2 + _itemPosByScrollPosition(scrollPosition),
+                            top: widget.removeMargins
+                                ? -kCircleMargin / 2
+                                : kTopMargin,
+                            left: kCircleRadius -
+                                kCircleMargin / 2 +
+                                _itemPosByScrollPosition(scrollPosition) +
+                                2,
                             child: BottomBarActiveItem(
                               i,
                               itemWidget: widget.bottomBarItems[i].activeItem,
@@ -264,6 +269,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                               textAlign: widget.textAlign,
                               maxLine: widget.maxLine,
                               itemWidget: widget.bottomBarItems[i].inActiveItem,
+                              labelWidget:
+                                  widget.bottomBarItems[i].itemLabelWidget,
                               label: widget.bottomBarItems[i].itemLabel,
                               onTap: (selectedIndex) {
                                 widget.notchBottomBarController.jumpTo(selectedIndex);
