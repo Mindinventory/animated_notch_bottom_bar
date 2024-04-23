@@ -89,6 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
               showShadow: false,
               durationInMilliSeconds: 300,
 
+              itemLabelStyle: const TextStyle(fontSize: 10),
+
               elevation: 1,
               bottomBarItems: const [
                 BottomBarItem(

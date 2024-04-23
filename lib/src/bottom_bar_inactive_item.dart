@@ -72,24 +72,16 @@ class BottomBarInActiveItem extends StatelessWidget {
                 labelWidget ??
                     Text(
                       label!,
+                      maxLines: maxLine ?? 1,
+                      overflow: textOverflow ?? TextOverflow.ellipsis,
+                      textAlign: textAlign,
+                      textDirection: textDirection,
                       style: labelStyle ??
                           TextStyle(
                             color: Colors.grey[700],
                             fontSize: 12.0,
                           ),
                     ),
-                Text(
-                  label!,
-                  maxLines: maxLine ?? 1,
-                  overflow: textOverflow ?? TextOverflow.ellipsis,
-                  textAlign: textAlign,
-                  textDirection: textDirection,
-                  style: labelStyle ??
-                      TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 12.0,
-                      ),
-                ),
               ],
             ],
           ),
