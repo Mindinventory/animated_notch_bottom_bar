@@ -55,6 +55,8 @@ class AnimatedNotchBottomBar extends StatefulWidget {
 
   final double kBottomRadius;
 
+  final Size? itemSize;
+
   /// set the maxLine of item label
   final int? maxLine;
 
@@ -110,6 +112,7 @@ class AnimatedNotchBottomBar extends StatefulWidget {
     this.shadowElevation,
     this.showShadow = true,
     this.showLabel = true,
+    this.itemSize,
     required this.kBottomRadius,
     this.notchShader,
     this.showBlurBottomBar = false,
@@ -263,6 +266,7 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> with Si
                               textDirection: widget.textDirection,
                               textAlign: widget.textAlign,
                               maxLine: widget.maxLine,
+                              itemSize: widget.itemSize,
                               itemWidget: widget.bottomBarItems[i].inActiveItem,
                               labelWidget: widget.bottomBarItems[i].itemLabelWidget,
                               label: widget.bottomBarItems[i].itemLabel,

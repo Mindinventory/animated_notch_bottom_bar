@@ -17,6 +17,7 @@ class BottomBarInActiveItem extends StatelessWidget {
     this.textOverflow,
     this.textAlign,
     this.textDirection,
+    this.itemSize,
   });
 
   /// item index
@@ -55,6 +56,8 @@ class BottomBarInActiveItem extends StatelessWidget {
   /// Function called when an item was tapped
   final ValueChanged<int> onTap;
 
+  final Size? itemSize;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -62,7 +65,7 @@ class BottomBarInActiveItem extends StatelessWidget {
       child: Container(
         color: Colors.transparent,
         child: SizedBox.fromSize(
-          size: const Size(kCircleRadius * 2, kCircleRadius * 2),
+          size: itemSize ?? const Size(kCircleRadius * 2, kCircleRadius * 2),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
