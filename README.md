@@ -61,7 +61,7 @@ bottomNavigationBar:  AnimatedNotchBottomBar(
 You can also set any animated widget.
 ```dart
 bottomNavigationBar:  AnimatedNotchBottomBar(
-  pageController: _pageController,
+  notchBottomBarController: _controller,
   bottomBarItems: [
     const BottomBarItem(
         inActiveItem: Icon(
